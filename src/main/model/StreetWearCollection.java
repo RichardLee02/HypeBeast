@@ -22,21 +22,11 @@ public class StreetWearCollection {
     }
 
     public void removeClothing(Clothing clothing) {
-        for (int i = 0; i < clothingCollection.size(); i++) {
-            if (clothing.equals(clothingCollection.get(i))) {
-                clothingCollection.remove(clothing);
-                break;
-            }
-        }
+        clothingCollection.remove(clothing);
     }
 
     public void removeShoes(Shoes shoes) {
-        for (int i = 0; i < shoesCollection.size(); i++) {
-            if (shoes.equals(shoesCollection.get(i))) {
-                shoesCollection.remove(shoes);
-                break;
-            }
-        }
+        shoesCollection.remove(shoes);
     }
 
     public List<Clothing> getClothingCollection() {

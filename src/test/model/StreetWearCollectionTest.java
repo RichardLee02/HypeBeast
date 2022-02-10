@@ -8,13 +8,25 @@ import static org.junit.jupiter.api.Assertions.*;
 public class StreetWearCollectionTest {
 
     private Clothing clothing;
+    private Clothing clothingX;
+    private Clothing clothingY;
+    private Clothing clothingZ;
     private Shoes shoes;
+    private Shoes shoesX;
+    private Shoes shoesY;
+    private Shoes shoesZ;
     private StreetWearCollection streetWearCollection;
 
     @BeforeEach
     public void setUp() {
         clothing = new Clothing("", "", "", "", 0,0);
+        clothingX = new Clothing("", "", "NWT", "", 0,0);
+        clothingY = new Clothing("", "", "NWOT", "", 0,0);
+        clothingZ = new Clothing("", "", "VEUC", "", 0,0);
         shoes = new Shoes("", "", "", 0, 0, 0);
+        shoesX = new Shoes("", "", "DS", 0, 0, 0);
+        shoesY = new Shoes("", "", "DSWT", 0, 0, 0);
+        shoesZ = new Shoes("", "", "VNDS", 0, 0, 0);
         streetWearCollection = new StreetWearCollection();
     }
 
@@ -25,11 +37,13 @@ public class StreetWearCollectionTest {
         assertEquals(1, streetWearCollection.getNumberOfClothing());
         assertEquals(clothing, streetWearCollection.getClothingCollection().get(0));
         // Multiple
-        streetWearCollection.addClothing(clothing);
-        streetWearCollection.addClothing(clothing);
-        assertEquals(3, streetWearCollection.getNumberOfClothing());
-        assertEquals(clothing, streetWearCollection.getClothingCollection().get(1));
-        assertEquals(clothing, streetWearCollection.getClothingCollection().get(2));
+        streetWearCollection.addClothing(clothingX);
+        streetWearCollection.addClothing(clothingY);
+        streetWearCollection.addClothing(clothingZ);
+        assertEquals(4, streetWearCollection.getNumberOfClothing());
+        assertEquals(clothingX, streetWearCollection.getClothingCollection().get(1));
+        assertEquals(clothingY, streetWearCollection.getClothingCollection().get(2));
+        assertEquals(clothingZ, streetWearCollection.getClothingCollection().get(3));
     }
 
     @Test
@@ -39,11 +53,13 @@ public class StreetWearCollectionTest {
         assertEquals(1, streetWearCollection.getNumberOfShoes());
         assertEquals(shoes, streetWearCollection.getShoesCollection().get(0));
         // Multiple
-        streetWearCollection.addShoes(shoes);
-        streetWearCollection.addShoes(shoes);
-        assertEquals(3, streetWearCollection.getNumberOfShoes());
-        assertEquals(shoes, streetWearCollection.getShoesCollection().get(1));
-        assertEquals(shoes, streetWearCollection.getShoesCollection().get(2));
+        streetWearCollection.addShoes(shoesX);
+        streetWearCollection.addShoes(shoesY);
+        streetWearCollection.addShoes(shoesZ);
+        assertEquals(4, streetWearCollection.getNumberOfShoes());
+        assertEquals(shoesX, streetWearCollection.getShoesCollection().get(1));
+        assertEquals(shoesY, streetWearCollection.getShoesCollection().get(2));
+        assertEquals(shoesZ, streetWearCollection.getShoesCollection().get(3));
     }
 
     @Test
@@ -56,14 +72,23 @@ public class StreetWearCollectionTest {
         assertEquals(0, streetWearCollection.getNumberOfClothing());
         // Multiple
         streetWearCollection.addClothing(clothing);
-        streetWearCollection.addClothing(clothing);
+        streetWearCollection.addClothing(clothingX);
+        streetWearCollection.addClothing(clothingY);
+        streetWearCollection.addClothing(clothingZ);
+        assertEquals(4, streetWearCollection.getNumberOfClothing());
+        assertEquals(clothing, streetWearCollection.getClothingCollection().get(0));
+        assertEquals(clothingX, streetWearCollection.getClothingCollection().get(1));
+        assertEquals(clothingY, streetWearCollection.getClothingCollection().get(2));
+        assertEquals(clothingZ, streetWearCollection.getClothingCollection().get(3));
+        streetWearCollection.removeClothing(clothingX);
+        streetWearCollection.removeClothing(clothingY);
         assertEquals(2, streetWearCollection.getNumberOfClothing());
         assertEquals(clothing, streetWearCollection.getClothingCollection().get(0));
-        assertEquals(clothing, streetWearCollection.getClothingCollection().get(1));
+        assertEquals(clothingZ, streetWearCollection.getClothingCollection().get(1));
         streetWearCollection.removeClothing(clothing);
         assertEquals(1, streetWearCollection.getNumberOfClothing());
-        assertEquals(clothing, streetWearCollection.getClothingCollection().get(0));
-        streetWearCollection.removeClothing(clothing);
+        assertEquals(clothingZ, streetWearCollection.getClothingCollection().get(0));
+        streetWearCollection.removeClothing(clothingZ);
         assertEquals(0, streetWearCollection.getNumberOfClothing());
     }
 
@@ -77,14 +102,23 @@ public class StreetWearCollectionTest {
         assertEquals(0, streetWearCollection.getNumberOfShoes());
         // Multiple
         streetWearCollection.addShoes(shoes);
-        streetWearCollection.addShoes(shoes);
+        streetWearCollection.addShoes(shoesX);
+        streetWearCollection.addShoes(shoesY);
+        streetWearCollection.addShoes(shoesZ);
+        assertEquals(4, streetWearCollection.getNumberOfShoes());
+        assertEquals(shoes, streetWearCollection.getShoesCollection().get(0));
+        assertEquals(shoesX, streetWearCollection.getShoesCollection().get(1));
+        assertEquals(shoesY, streetWearCollection.getShoesCollection().get(2));
+        assertEquals(shoesZ, streetWearCollection.getShoesCollection().get(3));
+        streetWearCollection.removeShoes(shoesX);
+        streetWearCollection.removeShoes(shoesY);
         assertEquals(2, streetWearCollection.getNumberOfShoes());
         assertEquals(shoes, streetWearCollection.getShoesCollection().get(0));
-        assertEquals(shoes, streetWearCollection.getShoesCollection().get(1));
+        assertEquals(shoesZ, streetWearCollection.getShoesCollection().get(1));
         streetWearCollection.removeShoes(shoes);
         assertEquals(1, streetWearCollection.getNumberOfShoes());
-        assertEquals(shoes, streetWearCollection.getShoesCollection().get(0));
-        streetWearCollection.removeShoes(shoes);
+        assertEquals(shoesZ, streetWearCollection.getShoesCollection().get(0));
+        streetWearCollection.removeShoes(shoesZ);
         assertEquals(0, streetWearCollection.getNumberOfShoes());
     }
 
@@ -93,31 +127,59 @@ public class StreetWearCollectionTest {
         // Single
         streetWearCollection.addClothing(clothing);
         streetWearCollection.addShoes(shoes);
+        assertEquals(clothing, streetWearCollection.getClothingCollection().get(0));
+        assertEquals(shoes, streetWearCollection.getShoesCollection().get(0));
         assertEquals(1, streetWearCollection.getNumberOfClothing());
         assertEquals(1, streetWearCollection.getNumberOfShoes());
         assertEquals(2, streetWearCollection.getNumberOfStreetWearItems());
         // Multiple
         streetWearCollection.addClothing(clothing);
-        streetWearCollection.addClothing(clothing);
+        streetWearCollection.addClothing(clothingX);
+        streetWearCollection.addClothing(clothingY);
+        streetWearCollection.addClothing(clothingZ);
         streetWearCollection.addShoes(shoes);
-        streetWearCollection.addShoes(shoes);
-        assertEquals(3, streetWearCollection.getNumberOfClothing());
-        assertEquals(3, streetWearCollection.getNumberOfShoes());
-        assertEquals(6, streetWearCollection.getNumberOfStreetWearItems());
+        streetWearCollection.addShoes(shoesX);
+        streetWearCollection.addShoes(shoesY);
+        streetWearCollection.addShoes(shoesZ);
+        assertEquals(clothing, streetWearCollection.getClothingCollection().get(0));
+        assertEquals(clothing, streetWearCollection.getClothingCollection().get(1));
+        assertEquals(clothingX, streetWearCollection.getClothingCollection().get(2));
+        assertEquals(clothingY, streetWearCollection.getClothingCollection().get(3));
+        assertEquals(clothingZ, streetWearCollection.getClothingCollection().get(4));
+        assertEquals(shoes, streetWearCollection.getShoesCollection().get(0));
+        assertEquals(shoes, streetWearCollection.getShoesCollection().get(1));
+        assertEquals(shoesX, streetWearCollection.getShoesCollection().get(2));
+        assertEquals(shoesY, streetWearCollection.getShoesCollection().get(3));
+        assertEquals(shoesZ, streetWearCollection.getShoesCollection().get(4));
+        assertEquals(5, streetWearCollection.getNumberOfClothing());
+        assertEquals(5, streetWearCollection.getNumberOfShoes());
+        assertEquals(10, streetWearCollection.getNumberOfStreetWearItems());
         // Single
         streetWearCollection.removeClothing(clothing);
         streetWearCollection.removeShoes(shoes);
+        assertEquals(clothing, streetWearCollection.getClothingCollection().get(0));
+        assertEquals(clothingX, streetWearCollection.getClothingCollection().get(1));
+        assertEquals(clothingY, streetWearCollection.getClothingCollection().get(2));
+        assertEquals(clothingZ, streetWearCollection.getClothingCollection().get(3));
+        assertEquals(shoes, streetWearCollection.getShoesCollection().get(0));
+        assertEquals(shoesX, streetWearCollection.getShoesCollection().get(1));
+        assertEquals(shoesY, streetWearCollection.getShoesCollection().get(2));
+        assertEquals(shoesZ, streetWearCollection.getShoesCollection().get(3));
+        assertEquals(4, streetWearCollection.getNumberOfClothing());
+        assertEquals(4, streetWearCollection.getNumberOfShoes());
+        assertEquals(8, streetWearCollection.getNumberOfStreetWearItems());
+        // Multiple
+        streetWearCollection.removeClothing(clothing);
+        streetWearCollection.removeClothing(clothingX);
+        streetWearCollection.removeShoes(shoes);
+        streetWearCollection.removeShoes(shoesX);
+        assertEquals(clothingY, streetWearCollection.getClothingCollection().get(0));
+        assertEquals(clothingZ, streetWearCollection.getClothingCollection().get(1));
+        assertEquals(shoesY, streetWearCollection.getShoesCollection().get(0));
+        assertEquals(shoesZ, streetWearCollection.getShoesCollection().get(1));
         assertEquals(2, streetWearCollection.getNumberOfClothing());
         assertEquals(2, streetWearCollection.getNumberOfShoes());
         assertEquals(4, streetWearCollection.getNumberOfStreetWearItems());
-        // Multiple
-        streetWearCollection.removeClothing(clothing);
-        streetWearCollection.removeClothing(clothing);
-        streetWearCollection.removeShoes(shoes);
-        streetWearCollection.removeShoes(shoes);
-        assertEquals(0, streetWearCollection.getNumberOfClothing());
-        assertEquals(0, streetWearCollection.getNumberOfShoes());
-        assertEquals(0, streetWearCollection.getNumberOfStreetWearItems());
     }
 
 }

@@ -23,7 +23,7 @@ public class StreetWearCollection {
 
     public void removeClothing(Clothing clothing) {
         for (int i = 0; i < clothingCollection.size(); i++) {
-            while (clothing.equals(clothingCollection.get(i))) {
+            if (clothing.equals(clothingCollection.get(i))) {
                 clothingCollection.remove(clothing);
             }
         }
@@ -31,7 +31,7 @@ public class StreetWearCollection {
 
     public void removeShoes(Shoes shoes) {
         for (int i = 0; i < shoesCollection.size(); i++) {
-            while (shoes.equals(shoesCollection.get(i))) {
+            if (shoes.equals(shoesCollection.get(i))) {
                 shoesCollection.remove(shoes);
             }
         }

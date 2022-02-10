@@ -25,7 +25,7 @@ public class Shoes {
      *         this.boughtPrice is set to boughtPrice
      *         this.marketPrice is set to marketPrice
      */
-    public Shoes(String brand, String model, String condition, int size,
+    public Shoes(String brand, String model, String condition, double size,
                  double boughtPrice, double marketPrice) {
 
         this.brand = brand;

@@ -25,6 +25,7 @@ public class StreetWearCollection {
         for (int i = 0; i < clothingCollection.size(); i++) {
             if (clothing.equals(clothingCollection.get(i))) {
                 clothingCollection.remove(clothing);
+                break;
             }
         }
     }
@@ -33,6 +34,7 @@ public class StreetWearCollection {
         for (int i = 0; i < shoesCollection.size(); i++) {
             if (shoes.equals(shoesCollection.get(i))) {
                 shoesCollection.remove(shoes);
+                break;
             }
         }
     }

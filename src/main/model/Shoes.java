@@ -1,13 +1,14 @@
 package model;
 
+// Represents a pair of shoes having a brand, a model, a condition, a size, a bought price, and a market price
 public class Shoes {
 
     private String brand;
     private String model;
     private String condition;
-    private double size;
-    private double boughtPrice;
-    private double marketPrice;
+    private String size;
+    private String boughtPrice;
+    private String marketPrice;
 
     /*
      * EFFECTS: this.brand is set to brand
@@ -25,8 +26,8 @@ public class Shoes {
      *         this.boughtPrice is set to boughtPrice
      *         this.marketPrice is set to marketPrice
      */
-    public Shoes(String brand, String model, String condition, double size,
-                 double boughtPrice, double marketPrice) {
+    public Shoes(String brand, String model, String condition, String size,
+                 String boughtPrice, String marketPrice) {
 
         this.brand = brand;
         this.model = model;
@@ -43,27 +44,45 @@ public class Shoes {
         this.marketPrice = marketPrice;
     }
 
+    /*
+     * EFFECTS: returns the shoe brand
+     */
     public String getBrand() {
         return brand;
     }
 
+    /*
+     * EFFECTS: returns the shoe model
+     */
     public String getModel() {
         return model;
     }
 
+    /*
+     * EFFECTS: returns the shoe condition
+     */
     public String getCondition() {
         return condition;
     }
 
-    public double getSize() {
+    /*
+     * EFFECTS: returns the shoe size
+     */
+    public String getSize() {
         return size;
     }
 
-    public double getBoughtPrice() {
+    /*
+     * EFFECTS: returns the shoe bought price
+     */
+    public String getBoughtPrice() {
         return boughtPrice;
     }
 
-    public double getMarketPrice() {
+    /*
+     * EFFECTS: returns the shoe market price
+     */
+    public String getMarketPrice() {
         return marketPrice;
     }
 

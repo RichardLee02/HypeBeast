@@ -17,13 +17,13 @@ public class ShoesTest {
 
     @BeforeEach
     public void setUp() {
-        shoesInvalid = new Shoes("", "", "", 0, 0, 0);
-        shoesDS = new Shoes("", "", "DS", 0, 0, 0);
-        shoesDSWT = new Shoes("", "", "DSWT", 0, 0, 0);
-        shoesVNDS = new Shoes("", "", "VNDS", 0, 0, 0);
-        shoesNDS = new Shoes("", "", "NDS", 0, 0, 0);
-        shoesPADS = new Shoes("", "", "PADS", 0, 0, 0);
-        shoesBS = new Shoes("", "", "BS", 0, 0, 0);
+        shoesInvalid = new Shoes("", "", "", "", "", "");
+        shoesDS = new Shoes("", "", "DS", "", "", "");
+        shoesDSWT = new Shoes("", "", "DSWT", "", "", "");
+        shoesVNDS = new Shoes("", "", "VNDS", "", "", "");
+        shoesNDS = new Shoes("", "", "NDS", "", "", "");
+        shoesPADS = new Shoes("", "", "PADS", "", "", "");
+        shoesBS = new Shoes("", "", "BS", "", "", "");
 
     }
 
@@ -32,9 +32,9 @@ public class ShoesTest {
         assertEquals("", shoesInvalid.getBrand());
         assertEquals("", shoesInvalid.getModel());
         assertEquals("[INVALID CONDITION]", shoesInvalid.getCondition());
-        assertEquals(0, shoesInvalid.getSize());
-        assertEquals(0 , shoesInvalid.getBoughtPrice());
-        assertEquals(0 , shoesInvalid.getMarketPrice());
+        assertEquals("", shoesInvalid.getSize());
+        assertEquals("", shoesInvalid.getBoughtPrice());
+        assertEquals("", shoesInvalid.getMarketPrice());
     }
 
     @Test
@@ -42,9 +42,9 @@ public class ShoesTest {
         assertEquals("", shoesDS.getBrand());
         assertEquals("", shoesDS.getModel());
         assertEquals("DS", shoesDS.getCondition());
-        assertEquals(0, shoesDS.getSize());
-        assertEquals(0 , shoesDS.getBoughtPrice());
-        assertEquals(0 , shoesDS.getMarketPrice());
+        assertEquals("", shoesDS.getSize());
+        assertEquals("", shoesDS.getBoughtPrice());
+        assertEquals("", shoesDS.getMarketPrice());
     }
 
     @Test
@@ -52,9 +52,9 @@ public class ShoesTest {
         assertEquals("", shoesDSWT.getBrand());
         assertEquals("", shoesDSWT.getModel());
         assertEquals("DSWT", shoesDSWT.getCondition());
-        assertEquals(0, shoesDSWT.getSize());
-        assertEquals(0 , shoesDSWT.getBoughtPrice());
-        assertEquals(0 , shoesDSWT.getMarketPrice());
+        assertEquals("", shoesDSWT.getSize());
+        assertEquals("", shoesDSWT.getBoughtPrice());
+        assertEquals("", shoesDSWT.getMarketPrice());
     }
 
     @Test
@@ -62,9 +62,9 @@ public class ShoesTest {
         assertEquals("", shoesVNDS.getBrand());
         assertEquals("", shoesVNDS.getModel());
         assertEquals("VNDS", shoesVNDS.getCondition());
-        assertEquals(0, shoesVNDS.getSize());
-        assertEquals(0 , shoesVNDS.getBoughtPrice());
-        assertEquals(0 , shoesVNDS.getMarketPrice());
+        assertEquals("", shoesVNDS.getSize());
+        assertEquals("", shoesVNDS.getBoughtPrice());
+        assertEquals("", shoesVNDS.getMarketPrice());
     }
 
     @Test
@@ -72,9 +72,9 @@ public class ShoesTest {
         assertEquals("", shoesNDS.getBrand());
         assertEquals("", shoesNDS.getModel());
         assertEquals("NDS", shoesNDS.getCondition());
-        assertEquals(0, shoesNDS.getSize());
-        assertEquals(0 , shoesNDS.getBoughtPrice());
-        assertEquals(0 , shoesNDS.getMarketPrice());
+        assertEquals("", shoesNDS.getSize());
+        assertEquals("", shoesNDS.getBoughtPrice());
+        assertEquals("", shoesNDS.getMarketPrice());
     }
 
     @Test
@@ -82,9 +82,9 @@ public class ShoesTest {
         assertEquals("", shoesPADS.getBrand());
         assertEquals("", shoesPADS.getModel());
         assertEquals("PADS", shoesPADS.getCondition());
-        assertEquals(0, shoesPADS.getSize());
-        assertEquals(0 , shoesPADS.getBoughtPrice());
-        assertEquals(0 , shoesPADS.getMarketPrice());
+        assertEquals("", shoesPADS.getSize());
+        assertEquals("", shoesPADS.getBoughtPrice());
+        assertEquals("", shoesPADS.getMarketPrice());
     }
 
     @Test
@@ -92,9 +92,9 @@ public class ShoesTest {
         assertEquals("", shoesBS.getBrand());
         assertEquals("", shoesBS.getModel());
         assertEquals("BS", shoesBS.getCondition());
-        assertEquals(0, shoesBS.getSize());
-        assertEquals(0 , shoesBS.getBoughtPrice());
-        assertEquals(0 , shoesBS.getMarketPrice());
+        assertEquals("", shoesBS.getSize());
+        assertEquals("", shoesBS.getBoughtPrice());
+        assertEquals("", shoesBS.getMarketPrice());
     }
 
 }

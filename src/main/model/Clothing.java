@@ -1,13 +1,14 @@
 package model;
 
+// Represents a clothing having a brand, a model, a condition, a size, a bought price, and a market price
 public class Clothing {
 
     private String brand;
     private String model;
     private String condition;
     private String size;
-    private double boughtPrice;
-    private double marketPrice;
+    private String boughtPrice;
+    private String marketPrice;
 
     /*
      * EFFECTS: this.brand is set to brand
@@ -19,7 +20,6 @@ public class Clothing {
      *                                  Excellent Used Condition (EUC)
      *                                  Very Good Used Condition (VGUC)
      *                                  Good Used Condition (GUC)
-     *
      *         then this.condition is set to condition, otherwise this.condition is set to [INVALID CONDITION]
      *
      *         this.size is set to size
@@ -27,7 +27,7 @@ public class Clothing {
      *         this.marketPrice is set to marketPrice
      */
     public Clothing(String brand, String model, String condition, String size,
-                    double boughtPrice, double marketPrice) {
+                    String boughtPrice, String marketPrice) {
 
         this.brand = brand;
         this.model = model;
@@ -44,27 +44,46 @@ public class Clothing {
         this.marketPrice = marketPrice;
     }
 
+    /*
+     * EFFECTS: returns the clothing brand
+     */
     public String getBrand() {
         return brand;
     }
 
+    /*
+     * EFFECTS: returns the clothing model
+     */
     public String getModel() {
         return model;
     }
 
+    /*
+     * EFFECTS: returns the clothing condition
+     */
     public String getCondition() {
         return condition;
     }
 
+    /*
+     * EFFECTS: returns the clothing size
+     */
     public String getSize() {
         return size;
     }
 
-    public double getBoughtPrice() {
+    /*
+     * EFFECTS: returns the clothing bought price
+     */
+    public String getBoughtPrice() {
         return boughtPrice;
     }
 
-    public double getMarketPrice() {
+    /*
+     * EFFECTS: returns the clothing market price
+     */
+    public String getMarketPrice() {
         return marketPrice;
     }
+
 }

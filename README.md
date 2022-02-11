@@ -10,13 +10,13 @@ includes other features such as viewing all of your items and viewing the number
 
 **Who Will Use It?**
 
-As the street wear market is growing exponentially and more people are getting involved in reselling, **HypeBeast** will 
+As the streetwear market is growing exponentially and more people are getting involved in reselling, **HypeBeast** will 
 provide resellers a way to keep track of their items in a collection. Rather than keeping record of their pieces by 
 visual, **HypeBeast** is a simple application that enables people to keep a digital record of their inventory.
 
 **Why Is This Project Of Interest To You?**
 
-As a street wear collector and reseller myself, the most irritating thing is losing track of my collection. However,
+As a streetwear collector and reseller myself, the most irritating thing is losing track of my collection. However,
 with **HypeBeast**, it provides a way of recording all of my pieces - I will be able to have a list of clothing/shoes 
 with information including its brand, model, size, and many more.
 

@@ -17,13 +17,13 @@ public class ClothingTest {
 
     @BeforeEach
     public void setUp() {
-        clothingInvalid = new Clothing("", "", "", "", 0,0);
-        clothingNWT = new Clothing("", "", "NWT", "", 0,0);
-        clothingNWOT = new Clothing("", "", "NWOT", "", 0,0);
-        clothingVEUC = new Clothing("", "", "VEUC", "", 0,0);
-        clothingEUC = new Clothing("", "", "EUC", "", 0,0);
-        clothingVGUC = new Clothing("", "", "VGUC", "", 0,0);
-        clothingGUC = new Clothing("", "", "GUC", "", 0,0);
+        clothingInvalid = new Clothing("", "", "", "", "","");
+        clothingNWT = new Clothing("", "", "NWT", "", "","");
+        clothingNWOT = new Clothing("", "", "NWOT", "", "","");
+        clothingVEUC = new Clothing("", "", "VEUC", "", "","");
+        clothingEUC = new Clothing("", "", "EUC", "", "","");
+        clothingVGUC = new Clothing("", "", "VGUC", "", "","");
+        clothingGUC = new Clothing("", "", "GUC", "", "","");
     }
 
     @Test
@@ -32,8 +32,8 @@ public class ClothingTest {
         assertEquals("", clothingInvalid.getModel());
         assertEquals("[INVALID CONDITION]", clothingInvalid.getCondition());
         assertEquals("", clothingInvalid.getSize());
-        assertEquals(0 , clothingInvalid.getBoughtPrice());
-        assertEquals(0 , clothingInvalid.getMarketPrice());
+        assertEquals("" , clothingInvalid.getBoughtPrice());
+        assertEquals("" , clothingInvalid.getMarketPrice());
     }
 
     @Test
@@ -42,8 +42,8 @@ public class ClothingTest {
         assertEquals("", clothingNWT.getModel());
         assertEquals("NWT", clothingNWT.getCondition());
         assertEquals("", clothingNWT.getSize());
-        assertEquals(0 , clothingNWT.getBoughtPrice());
-        assertEquals(0 , clothingNWT.getMarketPrice());
+        assertEquals("" , clothingNWT.getBoughtPrice());
+        assertEquals("" , clothingNWT.getMarketPrice());
     }
 
     @Test
@@ -52,8 +52,8 @@ public class ClothingTest {
         assertEquals("", clothingNWOT.getModel());
         assertEquals("NWOT", clothingNWOT.getCondition());
         assertEquals("", clothingNWOT.getSize());
-        assertEquals(0 , clothingNWOT.getBoughtPrice());
-        assertEquals(0 , clothingNWOT.getMarketPrice());
+        assertEquals("" , clothingNWOT.getBoughtPrice());
+        assertEquals("" , clothingNWOT.getMarketPrice());
     }
 
     @Test
@@ -62,8 +62,8 @@ public class ClothingTest {
         assertEquals("", clothingVEUC.getModel());
         assertEquals("VEUC", clothingVEUC.getCondition());
         assertEquals("", clothingVEUC.getSize());
-        assertEquals(0 , clothingVEUC.getBoughtPrice());
-        assertEquals(0 , clothingVEUC.getMarketPrice());
+        assertEquals("" , clothingVEUC.getBoughtPrice());
+        assertEquals("" , clothingVEUC.getMarketPrice());
     }
 
     @Test
@@ -72,8 +72,8 @@ public class ClothingTest {
         assertEquals("", clothingEUC.getModel());
         assertEquals("EUC", clothingEUC.getCondition());
         assertEquals("", clothingEUC.getSize());
-        assertEquals(0 , clothingEUC.getBoughtPrice());
-        assertEquals(0 , clothingEUC.getMarketPrice());
+        assertEquals("" , clothingEUC.getBoughtPrice());
+        assertEquals("" , clothingEUC.getMarketPrice());
     }
 
     @Test
@@ -82,8 +82,8 @@ public class ClothingTest {
         assertEquals("", clothingVGUC.getModel());
         assertEquals("VGUC", clothingVGUC.getCondition());
         assertEquals("", clothingVGUC.getSize());
-        assertEquals(0 , clothingVGUC.getBoughtPrice());
-        assertEquals(0 , clothingVGUC.getMarketPrice());
+        assertEquals("" , clothingVGUC.getBoughtPrice());
+        assertEquals("" , clothingVGUC.getMarketPrice());
     }
 
     @Test
@@ -92,8 +92,8 @@ public class ClothingTest {
         assertEquals("", clothingGUC.getModel());
         assertEquals("GUC", clothingGUC.getCondition());
         assertEquals("", clothingGUC.getSize());
-        assertEquals(0 , clothingGUC.getBoughtPrice());
-        assertEquals(0 , clothingGUC.getMarketPrice());
+        assertEquals("" , clothingGUC.getBoughtPrice());
+        assertEquals("" , clothingGUC.getMarketPrice());
     }
 
 }

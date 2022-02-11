@@ -19,14 +19,14 @@ public class StreetWearCollectionTest {
 
     @BeforeEach
     public void setUp() {
-        clothing = new Clothing("", "", "", "", 0,0);
-        clothingX = new Clothing("", "", "NWT", "", 0,0);
-        clothingY = new Clothing("", "", "NWOT", "", 0,0);
-        clothingZ = new Clothing("", "", "VEUC", "", 0,0);
-        shoes = new Shoes("", "", "", 0, 0, 0);
-        shoesX = new Shoes("", "", "DS", 0, 0, 0);
-        shoesY = new Shoes("", "", "DSWT", 0, 0, 0);
-        shoesZ = new Shoes("", "", "VNDS", 0, 0, 0);
+        clothing = new Clothing("", "", "", "", "","");
+        clothingX = new Clothing("", "", "NWT", "", "","");
+        clothingY = new Clothing("", "", "NWOT", "", "","");
+        clothingZ = new Clothing("", "", "VEUC", "", "","");
+        shoes = new Shoes("", "", "", "", "", "");
+        shoesX = new Shoes("", "", "DS", "", "", "");
+        shoesY = new Shoes("", "", "DSWT", "", "", "");
+        shoesZ = new Shoes("", "", "VNDS", "", "", "");
         streetWearCollection = new StreetWearCollection();
     }
 

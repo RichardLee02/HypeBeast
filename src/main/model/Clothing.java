@@ -11,23 +11,17 @@ public class Clothing {
     private String marketPrice;
 
     /*
-     * EFFECTS: this.brand is set to brand
-     *          this.model is set to model
+     * EFFECTS: constructs a clothing with a brand, model, condition, size, bought price, and market price
      *
-     *          if condition is one of: New With Tags (NWT)
-     *                                  New Without Tags (NWOT)
-     *                                  Very Excellent Used Condition (VEUC)
-     *                                  Excellent Used Condition (EUC)
-     *                                  Very Good Used Condition (VGUC)
-     *                                  Good Used Condition (GUC)
-     *         then this.condition is set to condition, otherwise this.condition is set to [INVALID CONDITION]
-     *
-     *         this.size is set to size
-     *         this.boughtPrice is set to boughtPrice
-     *         this.marketPrice is set to marketPrice
+     *          if the condition is one of: New With Tags (NWT)
+     *                                      New Without Tags (NWOT)
+     *                                      Very Excellent Used Condition (VEUC)
+     *                                      Excellent Used Condition (EUC)
+     *                                      Very Good Used Condition (VGUC)
+     *                                      Good Used Condition (GUC)
+     *         then the condition is set as the given, otherwise the condition is set to [INVALID CONDITION]
      */
-    public Clothing(String brand, String model, String condition, String size,
-                    String boughtPrice, String marketPrice) {
+    public Clothing(String brand, String model, String condition, String size, String boughtPrice, String marketPrice) {
 
         this.brand = brand;
         this.model = model;

@@ -11,23 +11,21 @@ public class Shoes {
     private String marketPrice;
 
     /*
-     * EFFECTS: this.brand is set to brand
-     *          this.model is set to model
+     * EFFECTS: constructs a pair of shoes with a brand, model, condition, size, bought price, and market price
      *
-     *          if condition is one of: Deadstock (DS)
-     *                                  Deadstock With Tags (DSWT)
-     *                                  Very Near Deadstock (VNDS)
-     *                                  Near Deadstock (NDS)
-     *                                  Pass As Deadstock (PADS)
-     *                                  Beaters (BS)
-     *         then this.condition is set to condition, otherwise this.condition is set to [INVALID CONDITION]
+     *          if the condition is one of: Deadstock (DS)
+     *                                      Deadstock With Tags (DSWT)
+     *                                      Very Near Deadstock (VNDS)
+     *                                      Near Deadstock (NDS)
+     *                                      Pass As Deadstock (PADS)
+     *                                      Beaters (BS)
+     *         then the condition is set as the given, otherwise the condition is set to [INVALID CONDITION]
      *
      *         this.size is set to size
      *         this.boughtPrice is set to boughtPrice
      *         this.marketPrice is set to marketPrice
      */
-    public Shoes(String brand, String model, String condition, String size,
-                 String boughtPrice, String marketPrice) {
+    public Shoes(String brand, String model, String condition, String size, String boughtPrice, String marketPrice) {
 
         this.brand = brand;
         this.model = model;

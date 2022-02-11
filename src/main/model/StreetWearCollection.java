@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-// Represents a collection of clothing and shoes
+// Represents a streetwear collection containing of clothing and shoes
 public class StreetWearCollection {
 
     private List<Clothing> clothingCollection;
@@ -47,35 +47,35 @@ public class StreetWearCollection {
     }
 
     /*
-     * EFFECTS: returns the clothing in the clothing collection
+     * EFFECTS: returns the list of clothing in the clothing collection
      */
     public List<Clothing> getClothingCollection() {
         return clothingCollection;
     }
 
     /*
-     * EFFECTS: returns the shoes in the shoes collection
+     * EFFECTS: returns the list of shoes in the shoes collection
      */
     public List<Shoes> getShoesCollection() {
         return shoesCollection;
     }
 
     /*
-     * EFFECTS: returns the number of clothing
+     * EFFECTS: returns the number of clothing in the clothing collection
      */
     public int getNumberOfClothing() {
         return clothingCollection.size();
     }
 
     /*
-     * EFFECTS: returns the number of shoes
+     * EFFECTS: returns the number of shoes in the shoes collection
      */
     public int getNumberOfShoes() {
         return shoesCollection.size();
     }
 
     /*
-     * EFFECTS: returns the number of streetwear items (clothing and shoes)
+     * EFFECTS: returns the number of streetwear items (clothing and shoes) in the street wear collection
      */
     public int getNumberOfStreetWearItems() {
         int numberOfStreetWearItems = clothingCollection.size() + shoesCollection.size();

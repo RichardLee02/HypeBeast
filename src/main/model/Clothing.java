@@ -1,6 +1,6 @@
 package model;
 
-// Represents a clothing having a brand, a model, a condition, a size, a bought price, and a market price
+// Represents a clothing having a brand, a model, a condition, a size, a bought price ($), and a market price ($)
 public class Clothing {
 
     private String brand;

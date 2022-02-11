@@ -214,8 +214,8 @@ public class HypeBeastApplication {
             for (Clothing clothing : streetWearCollection.getClothingCollection()) {
                 System.out.println(clothing.getBrand() + " " + clothing.getModel() + " "
                         + clothing.getCondition() + " Size " + clothing.getSize());
-                System.out.println("Bought Price: " + clothing.getBoughtPrice());
-                System.out.println("Market Price: " + clothing.getMarketPrice() + "\n");
+                System.out.println("Bought Price: $" + clothing.getBoughtPrice());
+                System.out.println("Market Price: $" + clothing.getMarketPrice() + "\n");
             }
         }
 
@@ -226,8 +226,8 @@ public class HypeBeastApplication {
             for (Shoes shoes : streetWearCollection.getShoesCollection()) {
                 System.out.println(shoes.getBrand() + " " + shoes.getModel() + " "
                         + shoes.getCondition() + " Size " + shoes.getSize());
-                System.out.println("Bought Price: " + shoes.getBoughtPrice());
-                System.out.println("Market Price: " + shoes.getMarketPrice() + "\n");
+                System.out.println("Bought Price: $" + shoes.getBoughtPrice());
+                System.out.println("Market Price: $" + shoes.getMarketPrice() + "\n");
             }
         }
     }

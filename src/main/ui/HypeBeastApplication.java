@@ -25,8 +25,8 @@ public class HypeBeastApplication {
      */
     public HypeBeastApplication() {
 
-        removeClothing = new ArrayList<Clothing>();
-        removeShoes = new ArrayList<Shoes>();
+        removeClothing = new ArrayList<>();
+        removeShoes = new ArrayList<>();
 
         runHypeBeast();
     }
@@ -44,9 +44,9 @@ public class HypeBeastApplication {
         while (keepGoing) {
             displayMenu();
             command = input.next();
-            command = command.toLowerCase();
+            command = command.toUpperCase();
 
-            if (command.equals("q")) {
+            if (command.equals("QH")) {
                 keepGoing = false;
             } else {
                 processCommand(command);
@@ -59,20 +59,28 @@ public class HypeBeastApplication {
     // MODIFIES: this
     // EFFECTS: processes user command
     private void processCommand(String command) {
-        if (command.equals("1")) {
-            doAddClothing();
-        } else if (command.equals("2")) {
-            doAddShoes();
-        } else if (command.equals("3")) {
-            doRemoveClothing();
-        } else if (command.equals("4")) {
-            doRemoveShoes();
-        } else if (command.equals("5")) {
-            doViewStreetwearCollection();
-        } else if (command.equals("6")) {
-            doViewTotalAmountOfItems();
-        } else {
-            System.out.println("Selection Not Valid...");
+        switch (command) {
+            case "AC":
+                doAddClothing();
+                break;
+            case "AS":
+                doAddShoes();
+                break;
+            case "RC":
+                doRemoveClothing();
+                break;
+            case "RS":
+                doRemoveShoes();
+                break;
+            case "VS":
+                doViewStreetwearCollection();
+                break;
+            case "VT":
+                doViewTotalAmountOfItems();
+                break;
+            default:
+                System.out.println("Selection Not Valid...");
+                break;
         }
     }
 
@@ -87,13 +95,13 @@ public class HypeBeastApplication {
     // EFFECTS: displays menu of options to user
     private void displayMenu() {
         System.out.println("\nSelect From:");
-        System.out.println("\t1 -> Add Clothing");
-        System.out.println("\t2 -> Add Shoes");
-        System.out.println("\t3 -> Remove Clothing");
-        System.out.println("\t4 -> Remove Shoes");
-        System.out.println("\t5 -> View Streetwear Collection");
-        System.out.println("\t6 -> View Total Amount Of Items");
-        System.out.println("\tq -> Quit HypeBeast");
+        System.out.println("\tAC -> Add Clothing");
+        System.out.println("\tAS -> Add Shoes");
+        System.out.println("\tRC -> Remove Clothing");
+        System.out.println("\tRS -> Remove Shoes");
+        System.out.println("\tVS -> View Streetwear Collection");
+        System.out.println("\tVT -> View Total Amount Of Items");
+        System.out.println("\tQH -> Quit HypeBeast");
     }
 
     /*
@@ -210,7 +218,7 @@ public class HypeBeastApplication {
         if (streetWearCollection.getClothingCollection().isEmpty()) {
             System.out.println("Clothing Collection Is Empty." + "\n");
         } else {
-            System.out.println("Clothing Collection: ");
+            System.out.println("Items In Clothing Collection: ");
             for (Clothing clothing : streetWearCollection.getClothingCollection()) {
                 System.out.println(clothing.getBrand() + " " + clothing.getModel() + " "
                         + clothing.getCondition() + " Size " + clothing.getSize());
@@ -222,7 +230,7 @@ public class HypeBeastApplication {
         if (streetWearCollection.getShoesCollection().isEmpty()) {
             System.out.println("Shoes Collection Is Empty." + "\n");
         } else {
-            System.out.println("Shoes Collection: ");
+            System.out.println("Items In Shoes Collection: ");
             for (Shoes shoes : streetWearCollection.getShoesCollection()) {
                 System.out.println(shoes.getBrand() + " " + shoes.getModel() + " "
                         + shoes.getCondition() + " Size " + shoes.getSize());

@@ -26,3 +26,5 @@ with information including its brand, model, size, and many more.
 - As a user, I want to be able to remove clothing/shoes in my collection
 - As a user, I want to be able to view clothing/shoes in my collection
 - As a user, I want to be able to view the number of clothing/shoes in my collection
+- As a user, I want to be able to save my collection to file
+- As a user, I want to be able to load my collection from file

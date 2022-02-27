@@ -41,8 +41,6 @@ public class HypeBeastApplication {
 
         init();
 
-        System.out.println("\nWelcome To HypeBeast!" + "\n");
-
         while (keepGoing) {
             displayMenu();
             command = input.next();
@@ -55,7 +53,7 @@ public class HypeBeastApplication {
             }
         }
 
-        System.out.println("\nThank You For Using HypeBeast!");
+        System.out.println("\nGood Bye!");
     }
 
     // MODIFIES: this
@@ -75,7 +73,7 @@ public class HypeBeastApplication {
                 doRemoveShoes();
                 break;
             case "VS":
-                doViewStreetWearCollection();
+                doViewStreetwearCollection();
                 break;
             case "VT":
                 doViewTotalAmountOfItems();
@@ -96,16 +94,14 @@ public class HypeBeastApplication {
 
     // EFFECTS: displays menu of options to user
     private void displayMenu() {
-        System.out.println("--------------------- HypeBeast ---------------------" + "\n");
-        System.out.println("Select From:" + "\n");
+        System.out.println("\nSelect From:");
         System.out.println("\tAC -> Add Clothing");
         System.out.println("\tAS -> Add Shoes");
         System.out.println("\tRC -> Remove Clothing");
         System.out.println("\tRS -> Remove Shoes");
-        System.out.println("\tVS -> View StreetWear Collection");
+        System.out.println("\tVS -> View Streetwear Collection");
         System.out.println("\tVT -> View Total Amount Of Items");
-        System.out.println("\tQH -> Quit HypeBeast" + "\n");
-        System.out.println("-----------------------------------------------------" + "\n");
+        System.out.println("\tQH -> Quit HypeBeast");
     }
 
     /*
@@ -127,7 +123,6 @@ public class HypeBeastApplication {
         String marketPrice = input.next();
         Clothing clothing = new Clothing(brand, model, condition, size, boughtPrice, marketPrice);
         streetWearCollection.addClothing(clothing);
-        System.out.print("\n");
     }
 
     /*
@@ -149,7 +144,6 @@ public class HypeBeastApplication {
         String marketPrice = input.next();
         Shoes shoes = new Shoes(brand, model, condition, size, boughtPrice, marketPrice);
         streetWearCollection.addShoes(shoes);
-        System.out.print("\n");
     }
 
     /*
@@ -171,15 +165,16 @@ public class HypeBeastApplication {
         System.out.print("Enter Clothing Market Price: ");
         String marketPrice = input.next();
         for (Clothing clothing : streetWearCollection.getClothingCollection()) {
-            if (clothing.getBrand().equals(brand) && clothing.getModel().equals(model)
-                    && clothing.getCondition().equals(condition) && clothing.getSize().equals(size)
-                    && clothing.getBoughtPrice().equals(boughtPrice)
-                    && clothing.getMarketPrice().equals(marketPrice)) {
-                removeClothing.add(clothing);
+            if (streetWearCollection.getClothingCollection().contains(clothing)) {
+                if (clothing.getBrand().equals(brand) && clothing.getModel().equals(model)
+                        && clothing.getCondition().equals(condition) && clothing.getSize().equals(size)
+                        && clothing.getBoughtPrice().equals(boughtPrice)
+                        && clothing.getMarketPrice().equals(marketPrice)) {
+                    removeClothing.add(clothing);
+                }
             }
         }
         streetWearCollection.getClothingCollection().removeAll(removeClothing);
-        System.out.print("\n");
     }
 
     /*
@@ -201,10 +196,12 @@ public class HypeBeastApplication {
         System.out.print("Enter Shoe Market Price: ");
         String marketPrice = input.next();
         for (Shoes shoes : streetWearCollection.getShoesCollection()) {
-            if (shoes.getBrand().equals(brand) && shoes.getModel().equals(model)
-                    && shoes.getCondition().equals(condition) && shoes.getSize().equals(size)
-                    && shoes.getBoughtPrice().equals(boughtPrice) && shoes.getMarketPrice().equals(marketPrice)) {
-                removeShoes.add(shoes);
+            if (streetWearCollection.getShoesCollection().contains(shoes)) {
+                if (shoes.getBrand().equals(brand) && shoes.getModel().equals(model)
+                        && shoes.getCondition().equals(condition) && shoes.getSize().equals(size)
+                        && shoes.getBoughtPrice().equals(boughtPrice) && shoes.getMarketPrice().equals(marketPrice)) {
+                    removeShoes.add(shoes);
+                }
             }
         }
         streetWearCollection.getShoesCollection().removeAll(removeShoes);
@@ -217,12 +214,11 @@ public class HypeBeastApplication {
      *          if the shoes collection is empty, it prints "Shoes Collection Is Empty", otherwise it prints all the
      *          shoes contained in the shoes collection
      */
-    public void doViewStreetWearCollection() {
-        System.out.println("Items In StreetWear Collection " + "\n");
-        System.out.println("Items In Clothing Collection: ");
+    public void doViewStreetwearCollection() {
         if (streetWearCollection.getClothingCollection().isEmpty()) {
             System.out.println("Clothing Collection Is Empty." + "\n");
         } else {
+            System.out.println("Items In Clothing Collection: ");
             for (Clothing clothing : streetWearCollection.getClothingCollection()) {
                 System.out.println(clothing.getBrand() + " " + clothing.getModel() + " "
                         + clothing.getCondition() + " Size " + clothing.getSize());
@@ -231,10 +227,10 @@ public class HypeBeastApplication {
             }
         }
 
-        System.out.println("Items In Shoes Collection: ");
         if (streetWearCollection.getShoesCollection().isEmpty()) {
             System.out.println("Shoes Collection Is Empty." + "\n");
         } else {
+            System.out.println("Items In Shoes Collection: ");
             for (Shoes shoes : streetWearCollection.getShoesCollection()) {
                 System.out.println(shoes.getBrand() + " " + shoes.getModel() + " "
                         + shoes.getCondition() + " Size " + shoes.getSize());
@@ -248,11 +244,9 @@ public class HypeBeastApplication {
      * EFFECTS: prints the total amount of items (clothing, shoes, and streetwear)
      */
     public void doViewTotalAmountOfItems() {
-        System.out.println("Total Amount Of Items " + "\n");
         System.out.println("Total Amount Of Clothing: " + streetWearCollection.getNumberOfClothing());
         System.out.println("Total Amount Of Shoes: " + streetWearCollection.getNumberOfShoes());
-        System.out.println("Total Amount Of StreetWear Items: "
-                + streetWearCollection.getNumberOfStreetWearItems() + "\n");
+        System.out.println("Total Amount Of Streetwear Items: " + streetWearCollection.getNumberOfStreetWearItems());
     }
 
 }

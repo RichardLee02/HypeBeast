@@ -1,0 +1,12 @@
+{
+    "clothingCollection": [{
+        "clothingSize": "a",
+        "clothingBrand": "a",
+        "clothingCondition": "[INVALID CONDITION]",
+        "clothingBoughtPrice": "a",
+        "clothingModel": "a",
+        "clothingMarketPrice": "a"
+    }],
+    "shoesCollection": [],
+    "name": "name"
+}

@@ -1,0 +1,39 @@
+{
+  "clothingCollection": [
+    {
+      "clothingSize": "M",
+      "clothingBrand": "Travis Scott x Nike",
+      "clothingCondition": "NWT",
+      "clothingBoughtPrice": "150",
+      "clothingModel": "NRG AG Utility Hoodie",
+      "clothingMarketPrice": "250"
+    },
+    {
+      "clothingSize": "M",
+      "clothingBrand": "Travis Scott x Nike",
+      "clothingCondition": "NWOT",
+      "clothingBoughtPrice": "125",
+      "clothingModel": "NRG AG Utility Sweatpants",
+      "clothingMarketPrice": "350"
+    }
+  ],
+  "shoesCollection": [
+    {
+      "ShoeBrand": "Nike",
+      "ShoeCondition": "DS",
+      "ShoeModel": "Air Force 1 Low Travis Scott Sail",
+      "ShoeSize": "10",
+      "ShoeBoughtPrice": "150",
+      "ShoeMarketPrice": "1500"
+    },
+    {
+      "ShoeBrand": "Nike",
+      "ShoeCondition": "DSWT",
+      "ShoeModel": "Air Force 1 Low Travis Scott Cactus Jack",
+      "ShoeSize": "10",
+      "ShoeBoughtPrice": "160",
+      "ShoeMarketPrice": "500"
+    }
+  ],
+  "name": "My StreetWear Collection"
+}

@@ -1,7 +1,12 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Writable;
+
+// References: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
+
 // Represents a pair of shoes having a brand, a model, a condition, a size, a bought price ($), and a market price ($)
-public class Shoes {
+public class Shoes implements Writable {
 
     private String brand;
     private String model;
@@ -20,10 +25,6 @@ public class Shoes {
      *                                      Pass As Deadstock (PADS)
      *                                      Beaters (BS)
      *         then the condition is set as the given, otherwise the condition is set to [INVALID CONDITION]
-     *
-     *         this.size is set to size
-     *         this.boughtPrice is set to boughtPrice
-     *         this.marketPrice is set to marketPrice
      */
     public Shoes(String brand, String model, String condition, String size, String boughtPrice, String marketPrice) {
 
@@ -84,4 +85,15 @@ public class Shoes {
         return marketPrice;
     }
 
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("ShoeBrand", brand);
+        json.put("ShoeModel", model);
+        json.put("ShoeCondition", condition);
+        json.put("ShoeSize", size);
+        json.put("ShoeBoughtPrice", boughtPrice);
+        json.put("ShoeMarketPrice", marketPrice);
+        return json;
+    }
 }

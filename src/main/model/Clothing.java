@@ -1,7 +1,12 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Writable;
+
+// References: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
+
 // Represents a clothing having a brand, a model, a condition, a size, a bought price ($), and a market price ($)
-public class Clothing {
+public class Clothing implements Writable {
 
     private String brand;
     private String model;
@@ -78,6 +83,18 @@ public class Clothing {
      */
     public String getMarketPrice() {
         return marketPrice;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("clothingBrand", brand);
+        json.put("clothingModel", model);
+        json.put("clothingCondition", condition);
+        json.put("clothingSize", size);
+        json.put("clothingBoughtPrice", boughtPrice);
+        json.put("clothingMarketPrice", marketPrice);
+        return json;
     }
 
 }

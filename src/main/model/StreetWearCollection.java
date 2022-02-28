@@ -1,17 +1,25 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 import java.util.List;
 
-// Represents a streetwear collection containing of clothing and shoes
-public class StreetWearCollection {
+// References: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
 
+// Represents a streetWear collection containing of clothing and shoes
+public class StreetWearCollection implements Writable {
+
+    private String name;
     private List<Clothing> clothingCollection;
     private List<Shoes> shoesCollection;
 
-    public StreetWearCollection() {
-        clothingCollection = new ArrayList<Clothing>();
-        shoesCollection = new ArrayList<Shoes>();
+    public StreetWearCollection(String name) {
+        this.name = name;
+        clothingCollection = new ArrayList<>();
+        shoesCollection = new ArrayList<>();
     }
 
     /*
@@ -46,6 +54,10 @@ public class StreetWearCollection {
         shoesCollection.remove(shoes);
     }
 
+    public String getName() {
+        return name;
+    }
+
     /*
      * EFFECTS: returns the list of clothing in the clothing collection
      */
@@ -75,11 +87,45 @@ public class StreetWearCollection {
     }
 
     /*
-     * EFFECTS: returns the number of streetwear items (clothing and shoes) in the street wear collection
+     * EFFECTS: returns the number of streetWear items (clothing and shoes) in the street wear collection
      */
     public int getNumberOfStreetWearItems() {
-        int numberOfStreetWearItems = clothingCollection.size() + shoesCollection.size();
-        return numberOfStreetWearItems;
+        return clothingCollection.size() + shoesCollection.size();
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("clothingCollection", clothingCollectionToJson());
+        json.put("shoesCollection", shoesCollectionToJson());
+        return json;
+    }
+
+    /*
+     * EFFECTS: returns clothingCollection as a JSON array
+     */
+    private JSONArray clothingCollectionToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Clothing c : clothingCollection) {
+            jsonArray.put(c.toJson());
+        }
+
+        return jsonArray;
+    }
+
+    /*
+     * EFFECTS: returns shoesCollection as a JSON array
+     */
+    private JSONArray shoesCollectionToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Shoes s : shoesCollection) {
+            jsonArray.put(s.toJson());
+        }
+
+        return jsonArray;
     }
 
 }

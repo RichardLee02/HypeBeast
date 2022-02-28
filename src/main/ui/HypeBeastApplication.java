@@ -3,18 +3,25 @@ package ui;
 import model.Clothing;
 import model.Shoes;
 import model.StreetWearCollection;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-// Sources: Professors & TAs
 // References: https://github.students.cs.ubc.ca/CPSC210/TellerApp
+//             https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
 
 // HypeBeast Application
 public class HypeBeastApplication {
 
+    private static final String JSON_STORE = "./data/streetWearCollection.json";
     private StreetWearCollection streetWearCollection;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
     private Scanner input;
 
     private List<Clothing> removeClothing;
@@ -23,7 +30,11 @@ public class HypeBeastApplication {
     /*
      * EFFECTS: runs the HypeBeast Application
      */
-    public HypeBeastApplication() {
+    public HypeBeastApplication() throws FileNotFoundException {
+
+        streetWearCollection = new StreetWearCollection("Richard's streetWearCollection");
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
 
         removeClothing = new ArrayList<>();
         removeShoes = new ArrayList<>();
@@ -61,35 +72,31 @@ public class HypeBeastApplication {
     // MODIFIES: this
     // EFFECTS: processes user command
     private void processCommand(String command) {
-        switch (command) {
-            case "AC":
-                doAddClothing();
-                break;
-            case "AS":
-                doAddShoes();
-                break;
-            case "RC":
-                doRemoveClothing();
-                break;
-            case "RS":
-                doRemoveShoes();
-                break;
-            case "VS":
-                doViewStreetWearCollection();
-                break;
-            case "VT":
-                doViewTotalAmountOfItems();
-                break;
-            default:
-                System.out.println("Selection Not Valid...");
-                break;
+        if (command.equals("AC")) {
+            doAddClothing();
+        } else if (command.equals("AS")) {
+            doAddShoes();
+        } else if (command.equals("RC")) {
+            doRemoveClothing();
+        } else if (command.equals("RS")) {
+            doRemoveShoes();
+        } else if (command.equals("VS")) {
+            doViewStreetWearCollection();
+        } else if (command.equals("VT")) {
+            doViewTotalAmountOfItems();
+        } else if (command.equals("SS")) {
+            doSaveStreetWearCollection();
+        } else if (command.equals("LS")) {
+            doLoadStreetWearCollection();
+        } else {
+            System.out.println("Selection Not Valid...");
         }
     }
 
     // MODIFIES: this
     // EFFECTS: initializes streetwear collection
     private void init() {
-        streetWearCollection = new StreetWearCollection();
+        streetWearCollection = new StreetWearCollection("name");
         input = new Scanner(System.in);
         input.useDelimiter("\n");
     }
@@ -104,6 +111,8 @@ public class HypeBeastApplication {
         System.out.println("\tRS -> Remove Shoes");
         System.out.println("\tVS -> View StreetWear Collection");
         System.out.println("\tVT -> View Total Amount Of Items");
+        System.out.println("\tSS -> Save StreetWear Collection");
+        System.out.println("\tLS -> Load StreetWear Collection");
         System.out.println("\tQH -> Quit HypeBeast" + "\n");
         System.out.println("-----------------------------------------------------" + "\n");
     }
@@ -254,6 +263,31 @@ public class HypeBeastApplication {
         System.out.println("Total Amount Of Shoes: " + streetWearCollection.getNumberOfShoes());
         System.out.println("Total Amount Of StreetWear Items: "
                 + streetWearCollection.getNumberOfStreetWearItems() + "\n");
+    }
+
+    // EFFECTS: saves the streetWearCollection to file
+    private void doSaveStreetWearCollection() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(streetWearCollection);
+            jsonWriter.close();
+            System.out.println("Saved " + streetWearCollection.getName() + " to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+        System.out.print("\n");
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads streetWearCollection from file
+    private void doLoadStreetWearCollection() {
+        try {
+            streetWearCollection = jsonReader.read();
+            System.out.println("Loaded " + streetWearCollection.getName() + " from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
+        System.out.print("\n");
     }
 
 }

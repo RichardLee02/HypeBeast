@@ -27,7 +27,12 @@ public class StreetWearCollectionTest {
         shoesX = new Shoes("", "", "DS", "", "", "");
         shoesY = new Shoes("", "", "DSWT", "", "", "");
         shoesZ = new Shoes("", "", "VNDS", "", "", "");
-        streetWearCollection = new StreetWearCollection();
+        streetWearCollection = new StreetWearCollection("name");
+    }
+
+    @Test
+    public void testConstructor() {
+        assertEquals("name", streetWearCollection.getName());
     }
 
     @Test

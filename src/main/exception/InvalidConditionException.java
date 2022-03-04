@@ -1,4 +1,4 @@
-package exception;
-
-public class InvalidConditionException extends Exception {
-}
+//package exception;
+//
+//public class InvalidConditionException extends Exception {
+//}

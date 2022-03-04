@@ -1,4 +1,4 @@
-package exception;
-
-public class EmptyStringException extends Exception {
-}
+//package exception;
+//
+//public class EmptyStringException extends Exception {
+//}

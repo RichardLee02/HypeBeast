@@ -89,7 +89,7 @@ public class HypeBeastApplication {
         } else if (command.equals("LS")) {
             doLoadStreetWearCollection();
         } else {
-            System.out.println("Selection Not Valid...");
+            System.out.println("Selection Not Valid..." + "\n");
         }
     }
 

@@ -7,6 +7,13 @@
         "clothingModel": "a",
         "clothingMarketPrice": "a"
     }],
-    "shoesCollection": [],
+    "shoesCollection": [{
+        "ShoeBrand": "a",
+        "ShoeCondition": "[INVALID CONDITION]",
+        "ShoeModel": "aa",
+        "ShoeSize": "a",
+        "ShoeBoughtPrice": "a",
+        "ShoeMarketPrice": "a"
+    }],
     "name": "name"
 }

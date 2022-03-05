@@ -98,4 +98,5 @@ public class Shoes implements Writable {
         json.put("ShoeMarketPrice", marketPrice);
         return json;
     }
+
 }

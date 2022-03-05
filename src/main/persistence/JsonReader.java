@@ -91,18 +91,18 @@ public class JsonReader {
      * EFFECTS: parses clothing from JSON object and adds it to streetWearCollection
      */
     private void addClothing(StreetWearCollection sc, JSONObject jsonObject) {
-        String brand = jsonObject.getString("clothingBrand");
-        String model = jsonObject.getString("clothingModel");
-        String condition = jsonObject.getString("clothingCondition");
-        String size = jsonObject.getString("clothingSize");
-        String boughtPrice = jsonObject.getString("clothingBoughtPrice");
-        String marketPrice = jsonObject.getString("clothingMarketPrice");
-        Clothing clothing = null;
         try {
+            String brand = jsonObject.getString("clothingBrand");
+            String model = jsonObject.getString("clothingModel");
+            String condition = jsonObject.getString("clothingCondition");
+            String size = jsonObject.getString("clothingSize");
+            String boughtPrice = jsonObject.getString("clothingBoughtPrice");
+            String marketPrice = jsonObject.getString("clothingMarketPrice");
+            Clothing clothing = null;
             clothing = new Clothing(brand, model, condition, size, boughtPrice, marketPrice);
             sc.addClothing(clothing);
         } catch (InvalidConditionException e) {
-            e.printStackTrace();
+            // expected
         }
     }
 
@@ -111,18 +111,18 @@ public class JsonReader {
      * EFFECTS: parses shoes from JSON object and adds it to streetWearCollection
      */
     private void addShoes(StreetWearCollection sc, JSONObject jsonObject) {
-        String brand = jsonObject.getString("ShoeBrand");
-        String model = jsonObject.getString("ShoeModel");
-        String condition = jsonObject.getString("ShoeCondition");
-        String size = jsonObject.getString("ShoeSize");
-        String boughtPrice = jsonObject.getString("ShoeBoughtPrice");
-        String marketPrice = jsonObject.getString("ShoeMarketPrice");
-        Shoes shoes = null;
         try {
+            String brand = jsonObject.getString("ShoeBrand");
+            String model = jsonObject.getString("ShoeModel");
+            String condition = jsonObject.getString("ShoeCondition");
+            String size = jsonObject.getString("ShoeSize");
+            String boughtPrice = jsonObject.getString("ShoeBoughtPrice");
+            String marketPrice = jsonObject.getString("ShoeMarketPrice");
+            Shoes shoes = null;
             shoes = new Shoes(brand, model, condition, size, boughtPrice, marketPrice);
             sc.addShoes(shoes);
         } catch (InvalidConditionException e) {
-            e.printStackTrace();
+            // expected
         }
     }
 

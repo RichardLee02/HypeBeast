@@ -1,5 +1,6 @@
 package model;
 
+import exception.InvalidConditionException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -19,172 +20,147 @@ public class StreetWearCollectionTest {
 
     @BeforeEach
     public void setUp() {
-        clothing = new Clothing("", "", "", "", "","");
-        clothingX = new Clothing("", "", "NWT", "", "","");
-        clothingY = new Clothing("", "", "NWOT", "", "","");
-        clothingZ = new Clothing("", "", "VEUC", "", "","");
-        shoes = new Shoes("", "", "", "", "", "");
-        shoesX = new Shoes("", "", "DS", "", "", "");
-        shoesY = new Shoes("", "", "DSWT", "", "", "");
-        shoesZ = new Shoes("", "", "VNDS", "", "", "");
-        streetWearCollection = new StreetWearCollection("name");
+        streetWearCollection = new StreetWearCollection("User's StreetWear Collection");
     }
 
     @Test
     public void testConstructor() {
-        assertEquals("name", streetWearCollection.getName());
+        assertEquals("User's StreetWear Collection", streetWearCollection.getName());
     }
 
     @Test
-    public void testAddClothing() {
-        // Single
-        streetWearCollection.addClothing(clothing);
-        assertEquals(1, streetWearCollection.getNumberOfClothing());
-        assertEquals(clothing, streetWearCollection.getClothingCollection().get(0));
-        // Multiple
-        streetWearCollection.addClothing(clothingX);
-        streetWearCollection.addClothing(clothingY);
-        streetWearCollection.addClothing(clothingZ);
-        assertEquals(4, streetWearCollection.getNumberOfClothing());
-        assertEquals(clothingX, streetWearCollection.getClothingCollection().get(1));
-        assertEquals(clothingY, streetWearCollection.getClothingCollection().get(2));
-        assertEquals(clothingZ, streetWearCollection.getClothingCollection().get(3));
+    public void testAddClothingExpectException() {
+        try {
+            clothing = new Clothing("", "", "", "", "", "");
+            streetWearCollection.addClothing(clothing);
+            fail("InvalidConditionException Was Not Thrown!");
+        } catch (InvalidConditionException e) {
+            // pass
+        }
     }
 
     @Test
-    public void testAddShoes() {
-        // Single
-        streetWearCollection.addShoes(shoes);
-        assertEquals(1, streetWearCollection.getNumberOfShoes());
-        assertEquals(shoes, streetWearCollection.getShoesCollection().get(0));
-        // Multiple
-        streetWearCollection.addShoes(shoesX);
-        streetWearCollection.addShoes(shoesY);
-        streetWearCollection.addShoes(shoesZ);
-        assertEquals(4, streetWearCollection.getNumberOfShoes());
-        assertEquals(shoesX, streetWearCollection.getShoesCollection().get(1));
-        assertEquals(shoesY, streetWearCollection.getShoesCollection().get(2));
-        assertEquals(shoesZ, streetWearCollection.getShoesCollection().get(3));
+    public void testAddClothingNoException() {
+        try {
+            clothingX = new Clothing("", "", "NWT", "", "", "");
+            clothingY = new Clothing("", "", "NWOT", "", "", "");
+            clothingZ = new Clothing("", "", "VEUC", "", "", "");
+            streetWearCollection.addClothing(clothingX);
+            streetWearCollection.addClothing(clothingY);
+            streetWearCollection.addClothing(clothingZ);
+        } catch (InvalidConditionException e) {
+            fail("Caught InvalidConditionException!");
+        }
+        assertEquals(clothingX, streetWearCollection.getClothingCollection().get(0));
+        assertEquals(clothingY, streetWearCollection.getClothingCollection().get(1));
+        assertEquals(clothingZ, streetWearCollection.getClothingCollection().get(2));
+        assertEquals(3, streetWearCollection.getNumberOfClothing());
+        assertEquals(3, streetWearCollection.getNumberOfStreetWearItems());
     }
 
     @Test
-    public void testRemoveClothing() {
-        // Single
-        streetWearCollection.addClothing(clothing);
-        assertEquals(1, streetWearCollection.getNumberOfClothing());
-        assertEquals(clothing, streetWearCollection.getClothingCollection().get(0));
-        streetWearCollection.removeClothing(clothing);
-        assertEquals(0, streetWearCollection.getNumberOfClothing());
-        // Multiple
-        streetWearCollection.addClothing(clothing);
-        streetWearCollection.addClothing(clothingX);
-        streetWearCollection.addClothing(clothingY);
-        streetWearCollection.addClothing(clothingZ);
-        assertEquals(4, streetWearCollection.getNumberOfClothing());
-        assertEquals(clothing, streetWearCollection.getClothingCollection().get(0));
-        assertEquals(clothingX, streetWearCollection.getClothingCollection().get(1));
-        assertEquals(clothingY, streetWearCollection.getClothingCollection().get(2));
-        assertEquals(clothingZ, streetWearCollection.getClothingCollection().get(3));
-        streetWearCollection.removeClothing(clothingX);
-        streetWearCollection.removeClothing(clothingY);
-        assertEquals(2, streetWearCollection.getNumberOfClothing());
-        assertEquals(clothing, streetWearCollection.getClothingCollection().get(0));
-        assertEquals(clothingZ, streetWearCollection.getClothingCollection().get(1));
-        streetWearCollection.removeClothing(clothing);
-        assertEquals(1, streetWearCollection.getNumberOfClothing());
-        assertEquals(clothingZ, streetWearCollection.getClothingCollection().get(0));
-        streetWearCollection.removeClothing(clothingZ);
-        assertEquals(0, streetWearCollection.getNumberOfClothing());
+    public void testAddShoesExpectException() {
+        try {
+            shoes = new Shoes("", "", "", "", "", "");
+            fail("InvalidConditionException Was Not Thrown!");
+        } catch (InvalidConditionException e) {
+            // pass
+        }
     }
 
     @Test
-    public void testRemoveShoes() {
-        // Single
-        streetWearCollection.addShoes(shoes);
-        assertEquals(1, streetWearCollection.getNumberOfShoes());
-        assertEquals(shoes, streetWearCollection.getShoesCollection().get(0));
-        streetWearCollection.removeShoes(shoes);
-        assertEquals(0, streetWearCollection.getNumberOfShoes());
-        // Multiple
-        streetWearCollection.addShoes(shoes);
-        streetWearCollection.addShoes(shoesX);
-        streetWearCollection.addShoes(shoesY);
-        streetWearCollection.addShoes(shoesZ);
-        assertEquals(4, streetWearCollection.getNumberOfShoes());
-        assertEquals(shoes, streetWearCollection.getShoesCollection().get(0));
-        assertEquals(shoesX, streetWearCollection.getShoesCollection().get(1));
-        assertEquals(shoesY, streetWearCollection.getShoesCollection().get(2));
-        assertEquals(shoesZ, streetWearCollection.getShoesCollection().get(3));
-        streetWearCollection.removeShoes(shoesX);
-        streetWearCollection.removeShoes(shoesY);
-        assertEquals(2, streetWearCollection.getNumberOfShoes());
-        assertEquals(shoes, streetWearCollection.getShoesCollection().get(0));
-        assertEquals(shoesZ, streetWearCollection.getShoesCollection().get(1));
-        streetWearCollection.removeShoes(shoes);
-        assertEquals(1, streetWearCollection.getNumberOfShoes());
-        assertEquals(shoesZ, streetWearCollection.getShoesCollection().get(0));
-        streetWearCollection.removeShoes(shoesZ);
-        assertEquals(0, streetWearCollection.getNumberOfShoes());
+    public void testAddShoesNoException() {
+        try {
+            shoesX = new Shoes("", "", "DS", "", "", "");
+            shoesY = new Shoes("", "", "DSWT", "", "", "");
+            shoesZ = new Shoes("", "", "VNDS", "", "", "");
+            streetWearCollection.addShoes(shoesX);
+            streetWearCollection.addShoes(shoesY);
+            streetWearCollection.addShoes(shoesZ);
+        } catch (InvalidConditionException e) {
+            fail("Caught InvalidConditionException!");
+        }
+        assertEquals(shoesX, streetWearCollection.getShoesCollection().get(0));
+        assertEquals(shoesY, streetWearCollection.getShoesCollection().get(1));
+        assertEquals(shoesZ, streetWearCollection.getShoesCollection().get(2));
+        assertEquals(3, streetWearCollection.getNumberOfShoes());
+        assertEquals(3, streetWearCollection.getNumberOfStreetWearItems());
     }
 
     @Test
-    public void testNumberOfStreetWearItems() {
-        // Single
-        streetWearCollection.addClothing(clothing);
-        streetWearCollection.addShoes(shoes);
-        assertEquals(clothing, streetWearCollection.getClothingCollection().get(0));
-        assertEquals(shoes, streetWearCollection.getShoesCollection().get(0));
-        assertEquals(1, streetWearCollection.getNumberOfClothing());
-        assertEquals(1, streetWearCollection.getNumberOfShoes());
-        assertEquals(2, streetWearCollection.getNumberOfStreetWearItems());
-        // Multiple
-        streetWearCollection.addClothing(clothing);
-        streetWearCollection.addClothing(clothingX);
-        streetWearCollection.addClothing(clothingY);
-        streetWearCollection.addClothing(clothingZ);
-        streetWearCollection.addShoes(shoes);
-        streetWearCollection.addShoes(shoesX);
-        streetWearCollection.addShoes(shoesY);
-        streetWearCollection.addShoes(shoesZ);
-        assertEquals(clothing, streetWearCollection.getClothingCollection().get(0));
-        assertEquals(clothing, streetWearCollection.getClothingCollection().get(1));
-        assertEquals(clothingX, streetWearCollection.getClothingCollection().get(2));
-        assertEquals(clothingY, streetWearCollection.getClothingCollection().get(3));
-        assertEquals(clothingZ, streetWearCollection.getClothingCollection().get(4));
-        assertEquals(shoes, streetWearCollection.getShoesCollection().get(0));
-        assertEquals(shoes, streetWearCollection.getShoesCollection().get(1));
-        assertEquals(shoesX, streetWearCollection.getShoesCollection().get(2));
-        assertEquals(shoesY, streetWearCollection.getShoesCollection().get(3));
-        assertEquals(shoesZ, streetWearCollection.getShoesCollection().get(4));
-        assertEquals(5, streetWearCollection.getNumberOfClothing());
-        assertEquals(5, streetWearCollection.getNumberOfShoes());
-        assertEquals(10, streetWearCollection.getNumberOfStreetWearItems());
-        // Single
-        streetWearCollection.removeClothing(clothing);
-        streetWearCollection.removeShoes(shoes);
-        assertEquals(clothing, streetWearCollection.getClothingCollection().get(0));
-        assertEquals(clothingX, streetWearCollection.getClothingCollection().get(1));
-        assertEquals(clothingY, streetWearCollection.getClothingCollection().get(2));
-        assertEquals(clothingZ, streetWearCollection.getClothingCollection().get(3));
-        assertEquals(shoes, streetWearCollection.getShoesCollection().get(0));
-        assertEquals(shoesX, streetWearCollection.getShoesCollection().get(1));
-        assertEquals(shoesY, streetWearCollection.getShoesCollection().get(2));
-        assertEquals(shoesZ, streetWearCollection.getShoesCollection().get(3));
-        assertEquals(4, streetWearCollection.getNumberOfClothing());
-        assertEquals(4, streetWearCollection.getNumberOfShoes());
-        assertEquals(8, streetWearCollection.getNumberOfStreetWearItems());
-        // Multiple
-        streetWearCollection.removeClothing(clothing);
-        streetWearCollection.removeClothing(clothingX);
-        streetWearCollection.removeShoes(shoes);
-        streetWearCollection.removeShoes(shoesX);
+    public void testRemoveClothingSingle() {
+        try {
+            clothingX = new Clothing("", "", "NWT", "", "","");
+            clothingY = new Clothing("", "", "NWOT", "", "","");
+            clothingZ = new Clothing("", "", "VEUC", "", "","");
+            streetWearCollection.addClothing(clothingX);
+            streetWearCollection.addClothing(clothingY);
+            streetWearCollection.addClothing(clothingZ);
+            streetWearCollection.removeClothing(clothingX);
+        } catch (InvalidConditionException e) {
+            fail("Caught InvalidConditionException!");
+        }
         assertEquals(clothingY, streetWearCollection.getClothingCollection().get(0));
         assertEquals(clothingZ, streetWearCollection.getClothingCollection().get(1));
+        assertEquals(2, streetWearCollection.getNumberOfClothing());
+        assertEquals(2, streetWearCollection.getNumberOfStreetWearItems());
+    }
+
+    @Test
+    public void testRemoveClothingMultiple() {
+        try {
+            clothingX = new Clothing("", "", "NWT", "", "","");
+            clothingY = new Clothing("", "", "NWOT", "", "","");
+            clothingZ = new Clothing("", "", "VEUC", "", "","");
+            streetWearCollection.addClothing(clothingX);
+            streetWearCollection.addClothing(clothingY);
+            streetWearCollection.addClothing(clothingZ);
+            streetWearCollection.removeClothing(clothingX);
+            streetWearCollection.removeClothing(clothingY);
+        } catch (InvalidConditionException e) {
+            fail("Caught InvalidConditionException!");
+        }
+        assertEquals(clothingZ, streetWearCollection.getClothingCollection().get(0));
+        assertEquals(1, streetWearCollection.getNumberOfClothing());
+        assertEquals(1, streetWearCollection.getNumberOfStreetWearItems());
+    }
+
+    @Test
+    public void testRemoveShoesSingle() {
+        try {
+            shoesX = new Shoes("", "", "DS", "", "", "");
+            shoesY = new Shoes("", "", "DSWT", "", "", "");
+            shoesZ = new Shoes("", "", "VNDS", "", "", "");
+            streetWearCollection.addShoes(shoesX);
+            streetWearCollection.addShoes(shoesY);
+            streetWearCollection.addShoes(shoesZ);
+            streetWearCollection.removeShoes(shoesX);
+        } catch (InvalidConditionException e) {
+            fail("Caught InvalidConditionException!");
+        }
         assertEquals(shoesY, streetWearCollection.getShoesCollection().get(0));
         assertEquals(shoesZ, streetWearCollection.getShoesCollection().get(1));
-        assertEquals(2, streetWearCollection.getNumberOfClothing());
         assertEquals(2, streetWearCollection.getNumberOfShoes());
-        assertEquals(4, streetWearCollection.getNumberOfStreetWearItems());
+        assertEquals(2, streetWearCollection.getNumberOfStreetWearItems());
+    }
+
+    @Test
+    public void testRemoveShoesMultiple() {
+        try {
+            shoesX = new Shoes("", "", "DS", "", "", "");
+            shoesY = new Shoes("", "", "DSWT", "", "", "");
+            shoesZ = new Shoes("", "", "VNDS", "", "", "");
+            streetWearCollection.addShoes(shoesX);
+            streetWearCollection.addShoes(shoesY);
+            streetWearCollection.addShoes(shoesZ);
+            streetWearCollection.removeShoes(shoesX);
+            streetWearCollection.removeShoes(shoesY);
+        } catch (InvalidConditionException e) {
+            fail("Caught InvalidConditionException!");
+        }
+        assertEquals(shoesZ, streetWearCollection.getShoesCollection().get(0));
+        assertEquals(1, streetWearCollection.getNumberOfShoes());
+        assertEquals(1, streetWearCollection.getNumberOfStreetWearItems());
     }
 
 }

@@ -1,6 +1,6 @@
 package model;
 
-import org.junit.jupiter.api.BeforeEach;
+import exception.InvalidConditionException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -15,29 +15,23 @@ public class ClothingTest {
     private Clothing clothingVGUC;
     private Clothing clothingGUC;
 
-    @BeforeEach
-    public void setUp() {
-        clothingInvalid = new Clothing("", "", "", "", "","");
-        clothingNWT = new Clothing("", "", "NWT", "", "","");
-        clothingNWOT = new Clothing("", "", "NWOT", "", "","");
-        clothingVEUC = new Clothing("", "", "VEUC", "", "","");
-        clothingEUC = new Clothing("", "", "EUC", "", "","");
-        clothingVGUC = new Clothing("", "", "VGUC", "", "","");
-        clothingGUC = new Clothing("", "", "GUC", "", "","");
-    }
-
     @Test
     public void testConstructorInvalid() {
-        assertEquals("", clothingInvalid.getBrand());
-        assertEquals("", clothingInvalid.getModel());
-        assertEquals("[INVALID CONDITION]", clothingInvalid.getCondition());
-        assertEquals("", clothingInvalid.getSize());
-        assertEquals("" , clothingInvalid.getBoughtPrice());
-        assertEquals("" , clothingInvalid.getMarketPrice());
+        try {
+            clothingInvalid = new Clothing("", "", "", "", "","");
+            fail("InvalidConditionException Was Not Thrown!");
+        } catch (InvalidConditionException e) {
+            // pass
+        }
     }
 
     @Test
     public void testConstructorNWT() {
+        try {
+            clothingNWT = new Clothing("", "", "NWT", "", "","");
+        } catch (InvalidConditionException e) {
+            fail("Caught InvalidConditionException!");
+        }
         assertEquals("", clothingNWT.getBrand());
         assertEquals("", clothingNWT.getModel());
         assertEquals("NWT", clothingNWT.getCondition());
@@ -48,6 +42,11 @@ public class ClothingTest {
 
     @Test
     public void testConstructorNWOT() {
+        try {
+            clothingNWOT = new Clothing("", "", "NWOT", "", "","");
+        } catch (InvalidConditionException e) {
+            fail("Caught InvalidConditionException!");
+        }
         assertEquals("", clothingNWOT.getBrand());
         assertEquals("", clothingNWOT.getModel());
         assertEquals("NWOT", clothingNWOT.getCondition());
@@ -58,6 +57,11 @@ public class ClothingTest {
 
     @Test
     public void testConstructorVEUC() {
+        try {
+            clothingVEUC = new Clothing("", "", "VEUC", "", "","");
+        } catch (InvalidConditionException e) {
+            fail("Caught InvalidConditionException!");
+        }
         assertEquals("", clothingVEUC.getBrand());
         assertEquals("", clothingVEUC.getModel());
         assertEquals("VEUC", clothingVEUC.getCondition());
@@ -68,6 +72,11 @@ public class ClothingTest {
 
     @Test
     public void testConstructorEUC() {
+        try {
+            clothingEUC = new Clothing("", "", "EUC", "", "","");
+        } catch (InvalidConditionException e) {
+            fail("Caught InvalidConditionException!");
+        }
         assertEquals("", clothingEUC.getBrand());
         assertEquals("", clothingEUC.getModel());
         assertEquals("EUC", clothingEUC.getCondition());
@@ -78,6 +87,11 @@ public class ClothingTest {
 
     @Test
     public void testConstructorVGUC() {
+        try {
+            clothingVGUC = new Clothing("", "", "VGUC", "", "","");
+        } catch (InvalidConditionException e) {
+            fail("Caught InvalidConditionException!");
+        }
         assertEquals("", clothingVGUC.getBrand());
         assertEquals("", clothingVGUC.getModel());
         assertEquals("VGUC", clothingVGUC.getCondition());
@@ -88,6 +102,11 @@ public class ClothingTest {
 
     @Test
     public void testConstructorGUC() {
+        try {
+            clothingGUC = new Clothing("", "", "GUC", "", "","");
+        } catch (InvalidConditionException e) {
+            fail("Caught InvalidConditionException!");
+        }
         assertEquals("", clothingGUC.getBrand());
         assertEquals("", clothingGUC.getModel());
         assertEquals("GUC", clothingGUC.getCondition());

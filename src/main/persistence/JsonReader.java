@@ -1,5 +1,6 @@
 package persistence;
 
+import exception.InvalidConditionException;
 import model.Clothing;
 import model.Shoes;
 import model.StreetWearCollection;
@@ -96,8 +97,13 @@ public class JsonReader {
         String size = jsonObject.getString("clothingSize");
         String boughtPrice = jsonObject.getString("clothingBoughtPrice");
         String marketPrice = jsonObject.getString("clothingMarketPrice");
-        Clothing clothing = new Clothing(brand, model, condition, size, boughtPrice, marketPrice);
-        sc.addClothing(clothing);
+        Clothing clothing = null;
+        try {
+            clothing = new Clothing(brand, model, condition, size, boughtPrice, marketPrice);
+            sc.addClothing(clothing);
+        } catch (InvalidConditionException e) {
+            e.printStackTrace();
+        }
     }
 
     /*
@@ -111,8 +117,13 @@ public class JsonReader {
         String size = jsonObject.getString("ShoeSize");
         String boughtPrice = jsonObject.getString("ShoeBoughtPrice");
         String marketPrice = jsonObject.getString("ShoeMarketPrice");
-        Shoes shoes = new Shoes(brand, model, condition, size, boughtPrice, marketPrice);
-        sc.addShoes(shoes);
+        Shoes shoes = null;
+        try {
+            shoes = new Shoes(brand, model, condition, size, boughtPrice, marketPrice);
+            sc.addShoes(shoes);
+        } catch (InvalidConditionException e) {
+            e.printStackTrace();
+        }
     }
 
 }

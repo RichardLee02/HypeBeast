@@ -1,5 +1,6 @@
 package model;
 
+import exception.InvalidConditionException;
 import org.json.JSONObject;
 import persistence.Writable;
 
@@ -26,7 +27,8 @@ public class Clothing implements Writable {
      *                                      Good Used Condition (GUC)
      *         then the condition is set as the given, otherwise the condition is set to [INVALID CONDITION]
      */
-    public Clothing(String brand, String model, String condition, String size, String boughtPrice, String marketPrice) {
+    public Clothing(String brand, String model, String condition, String size, String boughtPrice, String marketPrice)
+            throws InvalidConditionException {
 
         this.brand = brand;
         this.model = model;
@@ -35,7 +37,7 @@ public class Clothing implements Writable {
                 || condition.equals("EUC") || condition.equals("VGUC") || condition.equals("GUC")) {
             this.condition = condition;
         } else {
-            this.condition = "[INVALID CONDITION]";
+            throw new InvalidConditionException();
         }
 
         this.size = size;

@@ -1,5 +1,6 @@
 package ui;
 
+import exception.InvalidConditionException;
 import model.Clothing;
 import model.Shoes;
 import model.StreetWearCollection;
@@ -32,7 +33,7 @@ public class HypeBeastApplication {
      */
     public HypeBeastApplication() throws FileNotFoundException {
 
-        streetWearCollection = new StreetWearCollection("Richard's streetWearCollection");
+        streetWearCollection = new StreetWearCollection("User's StreetWear Collection");
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
 
@@ -134,8 +135,13 @@ public class HypeBeastApplication {
         String boughtPrice = input.next();
         System.out.print("Enter Clothing Market Price: ");
         String marketPrice = input.next();
-        Clothing clothing = new Clothing(brand, model, condition, size, boughtPrice, marketPrice);
-        streetWearCollection.addClothing(clothing);
+        Clothing clothing = null;
+        try {
+            clothing = new Clothing(brand, model, condition, size, boughtPrice, marketPrice);
+            streetWearCollection.addClothing(clothing);
+        } catch (InvalidConditionException e) {
+            System.out.print("\nInvalid Condition! Try Again!" + "\n");
+        }
         System.out.print("\n");
     }
 
@@ -156,8 +162,13 @@ public class HypeBeastApplication {
         String boughtPrice = input.next();
         System.out.print("Enter Shoe Market Price: ");
         String marketPrice = input.next();
-        Shoes shoes = new Shoes(brand, model, condition, size, boughtPrice, marketPrice);
-        streetWearCollection.addShoes(shoes);
+        Shoes shoes = null;
+        try {
+            shoes = new Shoes(brand, model, condition, size, boughtPrice, marketPrice);
+            streetWearCollection.addShoes(shoes);
+        } catch (InvalidConditionException e) {
+            System.out.print("\nInvalid Condition! Try Again!" + "\n");
+        }
         System.out.print("\n");
     }
 

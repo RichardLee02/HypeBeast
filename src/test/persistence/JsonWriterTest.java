@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 // References: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
 
+import exception.InvalidConditionException;
 import model.Clothing;
 import model.Shoes;
 import model.StreetWearCollection;
@@ -49,14 +50,18 @@ public class JsonWriterTest extends JsonTest {
     public void testWriterGeneralStreetWearCollection() {
         try {
             StreetWearCollection sc = new StreetWearCollection("My StreetWear Collection");
-            sc.addClothing(new Clothing("Travis Scott x Nike", "NRG AG Utility Hoodie",
-                    "NWT", "M", "150", "250"));
-            sc.addClothing(new Clothing("Travis Scott x Nike", "NRG AG Utility Sweatpants",
-                    "NWOT", "M", "125", "350"));
-            sc.addShoes(new Shoes("Nike", "Air Force 1 Low Travis Scott Sail",
-                    "DS", "10", "150", "1500"));
-            sc.addShoes(new Shoes("Nike", "Air Force 1 Low Travis Scott Cactus Jack",
-                    "DSWT", "10", "160", "500"));
+            try {
+                sc.addClothing(new Clothing("Travis Scott x Nike", "NRG AG Utility Hoodie",
+                        "NWT", "M", "150", "250"));
+                sc.addClothing(new Clothing("Travis Scott x Nike", "NRG AG Utility Sweatpants",
+                        "NWOT", "M", "125", "350"));
+                sc.addShoes(new Shoes("Nike", "Air Force 1 Low Travis Scott Sail",
+                        "DS", "10", "150", "1500"));
+                sc.addShoes(new Shoes("Nike", "Air Force 1 Low Travis Scott Cactus Jack",
+                        "DSWT", "10", "160", "500"));
+            } catch (InvalidConditionException e) {
+                fail("Caught InvalidConditionException!");
+            }
             JsonWriter writer = new JsonWriter("./data/testWriterGeneralStreetWearCollection.json");
             writer.open();
             writer.write(sc);

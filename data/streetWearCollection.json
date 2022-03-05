@@ -2,18 +2,11 @@
     "clothingCollection": [{
         "clothingSize": "a",
         "clothingBrand": "a",
-        "clothingCondition": "[INVALID CONDITION]",
+        "clothingCondition": "NWT",
         "clothingBoughtPrice": "a",
         "clothingModel": "a",
         "clothingMarketPrice": "a"
     }],
-    "shoesCollection": [{
-        "ShoeBrand": "a",
-        "ShoeCondition": "[INVALID CONDITION]",
-        "ShoeModel": "aa",
-        "ShoeSize": "a",
-        "ShoeBoughtPrice": "a",
-        "ShoeMarketPrice": "a"
-    }],
+    "shoesCollection": [],
     "name": "name"
 }

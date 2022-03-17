@@ -102,7 +102,7 @@ public class JsonReader {
             clothing = new Clothing(brand, model, condition, size, boughtPrice, marketPrice);
             sc.addClothing(clothing);
         } catch (InvalidConditionException e) {
-            // expected
+            System.out.print("Invalid Condition!");
         }
     }
 
@@ -122,7 +122,7 @@ public class JsonReader {
             shoes = new Shoes(brand, model, condition, size, boughtPrice, marketPrice);
             sc.addShoes(shoes);
         } catch (InvalidConditionException e) {
-            // expected
+            System.out.print("Invalid Condition!");
         }
     }
 

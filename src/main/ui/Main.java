@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 // References: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
 
 public class Main {
+
     public static void main(String[] args) {
         try {
             new HypeBeastApplication();

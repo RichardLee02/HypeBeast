@@ -95,7 +95,7 @@ public class HypeBeastApplication {
     }
 
     // MODIFIES: this
-    // EFFECTS: initializes streetwear collection
+    // EFFECTS: initializes streetWear collection
     private void init() {
         streetWearCollection = new StreetWearCollection("name");
         input = new Scanner(System.in);
@@ -266,7 +266,7 @@ public class HypeBeastApplication {
     }
 
     /*
-     * EFFECTS: prints the total amount of items (clothing, shoes, and streetwear)
+     * EFFECTS: prints the total amount of items (clothing, shoes, and streetWear)
      */
     public void doViewTotalAmountOfItems() {
         System.out.println("Total Amount Of Items " + "\n");
@@ -289,8 +289,10 @@ public class HypeBeastApplication {
         System.out.print("\n");
     }
 
-    // MODIFIES: this
-    // EFFECTS: loads streetWearCollection from file
+    /*
+     * MODIFIES: this
+     * EFFECTS: loads streetWearCollection from file
+     */
     private void doLoadStreetWearCollection() {
         try {
             streetWearCollection = jsonReader.read();

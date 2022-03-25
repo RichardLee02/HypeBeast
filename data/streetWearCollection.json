@@ -1,12 +1,39 @@
 {
-    "clothingCollection": [{
-        "clothingSize": "a",
-        "clothingBrand": "a",
-        "clothingCondition": "NWT",
-        "clothingBoughtPrice": "a",
-        "clothingModel": "a",
-        "clothingMarketPrice": "a"
-    }],
-    "shoesCollection": [],
-    "name": "name"
+    "clothingCollection": [
+        {
+            "clothingSize": "a",
+            "clothingBrand": "a",
+            "clothingCondition": "NWT",
+            "clothingBoughtPrice": "a",
+            "clothingModel": "a",
+            "clothingMarketPrice": "a"
+        },
+        {
+            "clothingSize": "a",
+            "clothingBrand": "a",
+            "clothingCondition": "NWT",
+            "clothingBoughtPrice": "a",
+            "clothingModel": "a",
+            "clothingMarketPrice": "a"
+        }
+    ],
+    "shoesCollection": [
+        {
+            "ShoeBrand": "a",
+            "ShoeCondition": "DS",
+            "ShoeModel": "a",
+            "ShoeSize": "a",
+            "ShoeBoughtPrice": "a",
+            "ShoeMarketPrice": "a"
+        },
+        {
+            "ShoeBrand": "a",
+            "ShoeCondition": "DS",
+            "ShoeModel": "a",
+            "ShoeSize": "a",
+            "ShoeBoughtPrice": "a",
+            "ShoeMarketPrice": "a"
+        }
+    ],
+    "name": "User's StreetWear Collection"
 }

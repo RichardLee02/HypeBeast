@@ -1,39 +1,5 @@
 {
-    "clothingCollection": [
-        {
-            "clothingSize": "a",
-            "clothingBrand": "a",
-            "clothingCondition": "NWT",
-            "clothingBoughtPrice": "a",
-            "clothingModel": "a",
-            "clothingMarketPrice": "a"
-        },
-        {
-            "clothingSize": "a",
-            "clothingBrand": "a",
-            "clothingCondition": "NWT",
-            "clothingBoughtPrice": "a",
-            "clothingModel": "a",
-            "clothingMarketPrice": "a"
-        }
-    ],
-    "shoesCollection": [
-        {
-            "ShoeBrand": "a",
-            "ShoeCondition": "DS",
-            "ShoeModel": "a",
-            "ShoeSize": "a",
-            "ShoeBoughtPrice": "a",
-            "ShoeMarketPrice": "a"
-        },
-        {
-            "ShoeBrand": "a",
-            "ShoeCondition": "DS",
-            "ShoeModel": "a",
-            "ShoeSize": "a",
-            "ShoeBoughtPrice": "a",
-            "ShoeMarketPrice": "a"
-        }
-    ],
+    "clothingCollection": [],
+    "shoesCollection": [],
     "name": "User's StreetWear Collection"
 }

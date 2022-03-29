@@ -104,7 +104,7 @@ public class HypeBeastApplication {
 
     // EFFECTS: displays menu of options to user
     private void displayMenu() {
-        System.out.println("--------------------- HypeBeast ---------------------" + "\n");
+        System.out.println("+--------------------- HypeBeast ---------------------+" + "\n");
         System.out.println("Select From:" + "\n");
         System.out.println("\tAC -> Add Clothing");
         System.out.println("\tAS -> Add Shoes");
@@ -115,7 +115,7 @@ public class HypeBeastApplication {
         System.out.println("\tSS -> Save StreetWear Collection");
         System.out.println("\tLS -> Load StreetWear Collection");
         System.out.println("\tQH -> Quit HypeBeast" + "\n");
-        System.out.println("-----------------------------------------------------" + "\n");
+        System.out.println("+-----------------------------------------------------+" + "\n");
     }
 
     /*

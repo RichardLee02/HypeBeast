@@ -27,6 +27,7 @@ public class StreetWearCollection implements Writable {
      * EFFECTS: clothing is added to the clothing collection
      */
     public void addClothing(Clothing clothing) {
+        EventLog.getInstance().logEvent(new Event("Added Clothing: " + clothing.toString()));
         clothingCollection.add(clothing);
     }
 
@@ -35,6 +36,7 @@ public class StreetWearCollection implements Writable {
      * EFFECTS: shoes are added to the shoes collection
      */
     public void addShoes(Shoes shoes) {
+        EventLog.getInstance().logEvent(new Event("Added Shoes: " + shoes.toString()));
         shoesCollection.add(shoes);
     }
 
@@ -43,6 +45,7 @@ public class StreetWearCollection implements Writable {
      * EFFECTS: clothing is removed from the clothing collection
      */
     public void removeClothing(Clothing clothing) {
+        EventLog.getInstance().logEvent(new Event("Removed Clothing: " + clothing.toString()));
         clothingCollection.remove(clothing);
     }
 
@@ -51,6 +54,7 @@ public class StreetWearCollection implements Writable {
      * EFFECTS: shoes are removed from the shoes collection
      */
     public void removeShoes(Shoes shoes) {
+        EventLog.getInstance().logEvent(new Event("Removed Shoes: " + shoes.toString()));
         shoesCollection.remove(shoes);
     }
 

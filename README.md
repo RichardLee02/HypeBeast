@@ -33,3 +33,17 @@ with information including its brand, model, size, and many more.
 
 - As a user, I want to be able to save my collection to file
 - As a user, I want to be able to load my collection from file
+
+**Phase 4: Task 2**
+
+A representation sample of the events that occur when HypeBeast runs:
+
+Mon Mar 28 22:29:48 PDT 2022\
+Added Clothing: [Brand = 'Essentials', Model = 'Black Pullover Hoodie', Condition = 'NWT', Size = 'M', Bought Price = '150', Market Price = '300']\
+Mon Mar 28 22:30:28 PDT 2022\
+Added Shoes: [Brand = 'Nike', Model = 'Air Force 1 Low Travis Scott Sail', Condition = 'DS', Size = '10', Bought Price = '150', Market Price = '300']\
+Mon Mar 28 22:30:30 PDT 2022\
+Removed Clothing: [Brand = 'Essentials', Model = 'Black Pullover Hoodie', Condition = 'NWT', Size = 'M', Bought Price = '150', Market Price = '300']\
+Mon Mar 28 22:30:32 PDT 2022\
+Removed Shoes: [Brand = 'Nike', Model = 'Air Force 1 Low Travis Scott Sail', Condition = 'DS', Size = '10', Bought Price = '150', Market Price = '300']
+

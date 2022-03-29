@@ -87,6 +87,16 @@ public class Shoes implements Writable {
         return marketPrice;
     }
 
+    /*
+     * EFFECTS: returns the shoes in string format
+     */
+    @Override
+    public String toString() {
+        return "[Brand = '" + brand + '\'' + ", Model = '" + model + '\'' + ", Condition = '" + condition
+                + '\'' + ", Size = '" + size + '\'' + ", Bought Price = '" + boughtPrice + '\'' + ", Market Price = '"
+                + marketPrice + '\'' + ']';
+    }
+
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();

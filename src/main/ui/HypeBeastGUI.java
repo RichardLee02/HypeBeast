@@ -2,6 +2,8 @@ package ui;
 
 import exception.InvalidConditionException;
 import model.Clothing;
+import model.Event;
+import model.EventLog;
 import model.Shoes;
 import model.StreetWearCollection;
 import persistence.JsonReader;
@@ -12,6 +14,8 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -20,6 +24,7 @@ import java.io.IOException;
 //             https://examples.javacodegeeks.com/desktop-java/swing/jbutton/set-action-command-for-jbutton/
 //             https://stackoverflow.com/questions/4577792/how-to-clear-jtable
 //             https://stackoverflow.com/questions/8689122/joptionpane-yes-no-options-confirm-dialog-box-issue
+//             https://stackoverflow.com/questions/60516720/java-how-to-print-message-when-a-jframe-is-closed
 
 // HypeBeast Application GUI
 public class HypeBeastGUI implements ActionListener {
@@ -98,6 +103,16 @@ public class HypeBeastGUI implements ActionListener {
         jsonReader = new JsonReader(JSON_STORE);
         streetWearCollection = new StreetWearCollection("User's StreetWear Collection");
         runHypeBeastGUI();
+
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                super.windowClosing(e);
+                for (Event event : EventLog.getInstance()) {
+                    System.out.println(event.toString());
+                }
+            }
+        });
     }
 
     /*

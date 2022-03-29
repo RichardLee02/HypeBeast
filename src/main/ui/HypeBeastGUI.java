@@ -106,6 +106,7 @@ public class HypeBeastGUI implements ActionListener {
      */
     private void runHypeBeastGUI() {
         processComboBox();
+        processStreetViewCollection();
         processLabel();
         processTextField();
         processImage();
@@ -146,13 +147,33 @@ public class HypeBeastGUI implements ActionListener {
 
     /*
      * MODIFIES: this
-     * EFFECTS: instantiates and sets up iconLabel, categoryLabel, brandLabel, modelLabel, conditionLabel, sizeLabel,
-     *          boughtPriceLabel, marketPriceLabel, collectionLabel, clothingLabel, and shoesLabel to frame
+     * EFFECTS: instantiates and sets up iconLabel, collectionLabel, clothingLabel, shoesLabel to frame
      */
-    @SuppressWarnings("methodlength")
-    private void processLabel() {
-        iconLabel = new JLabel();
+    private void processStreetViewCollection() {
         iconImage = new ImageIcon(iconName);
+        iconLabel = new JLabel();
+        collectionLabel = new JLabel("Total Number of StreetWear Items: 0");
+        clothingLabel = new JLabel("Total Number of Clothing: 0");
+        shoesLabel = new JLabel("Total Number of Shoes: 0");
+
+        iconLabel.setIcon(iconImage);
+        iconLabel.setBounds(500, 25, 200, 25);
+        collectionLabel.setBounds(283, 506, 250, 51);
+        clothingLabel.setBounds(655, 506, 250, 51);
+        shoesLabel.setBounds(998, 506, 250, 51);
+
+        frame.add(iconLabel);
+        frame.add(collectionLabel);
+        frame.add(clothingLabel);
+        frame.add(shoesLabel);
+    }
+
+    /*
+     * MODIFIES: this
+     * EFFECTS: instantiates and sets up categoryLabel, brandLabel, modelLabel, conditionLabel, sizeLabel,
+     *          boughtPriceLabel, marketPriceLabel to frame
+     */
+    private void processLabel() {
         categoryLabel = new JLabel("Category");
         brandLabel = new JLabel("Brand");
         modelLabel = new JLabel("Model");
@@ -160,12 +181,7 @@ public class HypeBeastGUI implements ActionListener {
         sizeLabel = new JLabel("Size");
         boughtPriceLabel = new JLabel("Bought Price");
         marketPriceLabel = new JLabel("Market Price");
-        collectionLabel = new JLabel("Total Number of StreetWear Items: 0");
-        clothingLabel = new JLabel("Total Number of Clothing: 0");
-        shoesLabel = new JLabel("Total Number of Shoes: 0");
 
-        iconLabel.setIcon(iconImage);
-        iconLabel.setBounds(500, 25, 200, 25);
         categoryLabel.setBounds(35, 12, 100, 51);
         brandLabel.setBounds(35, 60, 100, 51);
         modelLabel.setBounds(35, 110, 100, 51);
@@ -173,11 +189,7 @@ public class HypeBeastGUI implements ActionListener {
         sizeLabel.setBounds(35, 210, 100, 51);
         boughtPriceLabel.setBounds(35, 260, 100, 51);
         marketPriceLabel.setBounds(35, 310, 100, 51);
-        collectionLabel.setBounds(283, 506, 250, 51);
-        clothingLabel.setBounds(655, 506, 250, 51);
-        shoesLabel.setBounds(998, 506, 250, 51);
 
-        frame.add(iconLabel);
         frame.add(categoryLabel);
         frame.add(brandLabel);
         frame.add(modelLabel);
@@ -185,9 +197,6 @@ public class HypeBeastGUI implements ActionListener {
         frame.add(sizeLabel);
         frame.add(boughtPriceLabel);
         frame.add(marketPriceLabel);
-        frame.add(collectionLabel);
-        frame.add(clothingLabel);
-        frame.add(shoesLabel);
     }
 
     /*

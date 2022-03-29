@@ -108,6 +108,7 @@ public class HypeBeastGUI implements ActionListener {
         processComboBox();
         processLabel();
         processTextField();
+        processImage();
         processButton();
         processClothingTable();
         processShoesTable();
@@ -219,11 +220,9 @@ public class HypeBeastGUI implements ActionListener {
 
     /*
      * MODIFIES: this
-     * EFFECTS: instantiates and sets up addButton, deleteButton, saveButton, and loadButton to frame, and instantiates
-     *          and sets up addImage, deleteImage, saveImage, and loadImage to corresponding button
+     * EFFECTS: instantiates and sets up addImage, deleteImage, saveImage, and loadImage
      */
-    @SuppressWarnings("methodlength")
-    private void processButton() {
+    private void processImage() {
         addImage = new ImageIcon(addName);
         Image scaleAddImage = addImage.getImage();
         Image modifiedAddImage = scaleAddImage.getScaledInstance(25, 25, Image.SCALE_SMOOTH);
@@ -243,7 +242,14 @@ public class HypeBeastGUI implements ActionListener {
         Image scaleLoadImage = loadImage.getImage();
         Image modifiedLoadImage = scaleLoadImage.getScaledInstance(25, 25, Image.SCALE_SMOOTH);
         loadImage = new ImageIcon(modifiedLoadImage);
+    }
 
+    /*
+     * MODIFIES: this
+     * EFFECTS: instantiates and sets up addButton, deleteButton, saveButton, and loadButton to frame, and instantiates
+     *          and sets up addImage, deleteImage, saveImage, and loadImage to corresponding button
+     */
+    private void processButton() {
         addButton = new JButton("Add", addImage);
         deleteButton = new JButton("Delete", deleteImage);
         saveButton = new JButton("Save", saveImage);
@@ -291,8 +297,7 @@ public class HypeBeastGUI implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         String actionCommand = e.getActionCommand();
         if (actionCommand.equals("Add")) {
-            doAddClothing();
-            doAddShoes();
+            doAdd();
             doEmptyTextField();
             doViewStreetWearCollection();
         } else if (actionCommand.equals("Delete")) {
@@ -346,6 +351,15 @@ public class HypeBeastGUI implements ActionListener {
 
         return brandLength && modelLength && conditionLength && sizeLength
                 && boughtPriceLength && marketPriceLength && shoesCondition;
+    }
+
+    /*
+     * MODIFIES: this
+     * EFFECTS: adds clothing/shoes into clothingTableModel/shoesTableModel and streetWear collection respectively
+     */
+    private void doAdd() {
+        doAddClothing();
+        doAddShoes();
     }
 
     /*
@@ -457,7 +471,6 @@ public class HypeBeastGUI implements ActionListener {
      * EFFECTS: if the confirmDialog is equal to 0, it empties the clothingTableModel/shoesTableModel, and it loads
      *          streetWear collection from file into clothingTableModel/shoesTableModel, otherwise it prints message
      */
-    @SuppressWarnings("methodlength")
     private void doLoad() {
         int confirmDialog = JOptionPane.showConfirmDialog(null,
                 "Load Data?", "Load Option", JOptionPane.YES_NO_OPTION);
@@ -465,33 +478,40 @@ public class HypeBeastGUI implements ActionListener {
             try {
                 doEmptyTable();
                 streetWearCollection = jsonReader.read();
-
-                for (Clothing clothing : streetWearCollection.getClothingCollection()) {
-                    String brand = clothing.getBrand();
-                    String model = clothing.getModel();
-                    String condition = clothing.getCondition();
-                    String size = clothing.getSize();
-                    String boughtPrice = clothing.getBoughtPrice();
-                    String marketPrice = clothing.getMarketPrice();
-                    clothingTableModel.addRow(new Object[]{"Clothing", brand, model,
-                            condition, size, boughtPrice, marketPrice});
-                }
-
-                for (Shoes shoes : streetWearCollection.getShoesCollection()) {
-                    String brand = shoes.getBrand();
-                    String model = shoes.getModel();
-                    String condition = shoes.getCondition();
-                    String size = shoes.getSize();
-                    String boughtPrice = shoes.getBoughtPrice();
-                    String marketPrice = shoes.getMarketPrice();
-                    shoesTableModel.addRow(new Object[]{"Shoes", brand, model,
-                            condition, size, boughtPrice, marketPrice});
-                }
+                doLoadStreetWearCollection();
 
                 System.out.println("Loaded " + streetWearCollection.getName() + " from " + JSON_STORE);
             } catch (IOException exception) {
                 System.out.println("Unable to read from file: " + JSON_STORE);
             }
+        }
+    }
+
+    /*
+     * MODIFIES: this
+     * EFFECTS: adds clothing/shoes from streetWear collection to clothingTableModel/shoesTableModel respectively
+     */
+    private void doLoadStreetWearCollection() {
+        for (Clothing clothing : streetWearCollection.getClothingCollection()) {
+            String brand = clothing.getBrand();
+            String model = clothing.getModel();
+            String condition = clothing.getCondition();
+            String size = clothing.getSize();
+            String boughtPrice = clothing.getBoughtPrice();
+            String marketPrice = clothing.getMarketPrice();
+            clothingTableModel.addRow(new Object[]{"Clothing", brand, model,
+                    condition, size, boughtPrice, marketPrice});
+        }
+
+        for (Shoes shoes : streetWearCollection.getShoesCollection()) {
+            String brand = shoes.getBrand();
+            String model = shoes.getModel();
+            String condition = shoes.getCondition();
+            String size = shoes.getSize();
+            String boughtPrice = shoes.getBoughtPrice();
+            String marketPrice = shoes.getMarketPrice();
+            shoesTableModel.addRow(new Object[]{"Shoes", brand, model,
+                    condition, size, boughtPrice, marketPrice});
         }
     }
 

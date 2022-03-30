@@ -25,9 +25,6 @@ public class HypeBeastApplication {
     private JsonReader jsonReader;
     private Scanner input;
 
-    private List<Clothing> removeClothing;
-    private List<Shoes> removeShoes;
-
     /*
      * EFFECTS: runs the HypeBeast Application
      */
@@ -36,9 +33,6 @@ public class HypeBeastApplication {
         streetWearCollection = new StreetWearCollection("User's StreetWear Collection");
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
-
-        removeClothing = new ArrayList<>();
-        removeShoes = new ArrayList<>();
 
         runHypeBeast();
     }
@@ -178,6 +172,7 @@ public class HypeBeastApplication {
      *          size, bought, price) matches accordingly, it removes the clothing from the clothing collection
      */
     public void doRemoveClothing() {
+        List<Clothing> removeClothing = new ArrayList<>();
         System.out.print("Enter Clothing Brand: ");
         String brand = input.next();
         System.out.print("Enter Clothing Model: ");
@@ -208,6 +203,7 @@ public class HypeBeastApplication {
      *          size, bought, price) matches accordingly, it removes the shoes from the shoes collection
      */
     public void doRemoveShoes() {
+        List<Shoes> removeShoes = new ArrayList<>();
         System.out.print("Enter Shoe Brand: ");
         String brand = input.next();
         System.out.print("Enter Shoe Model: ");

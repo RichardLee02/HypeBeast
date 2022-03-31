@@ -121,7 +121,7 @@ public class HypeBeastGUI implements ActionListener {
      */
     private void runHypeBeastGUI() {
         processComboBox();
-        processStreetViewCollection();
+        processStreetWearCollection();
         processLabel();
         processTextField();
         processImage();
@@ -164,7 +164,7 @@ public class HypeBeastGUI implements ActionListener {
      * MODIFIES: this
      * EFFECTS: instantiates and sets up iconLabel, collectionLabel, clothingLabel, shoesLabel to frame
      */
-    private void processStreetViewCollection() {
+    private void processStreetWearCollection() {
         iconImage = new ImageIcon(iconName);
         iconLabel = new JLabel();
         collectionLabel = new JLabel("Total Number of StreetWear Items: 0");

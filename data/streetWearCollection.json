@@ -1,12 +1,5 @@
 {
-    "clothingCollection": [{
-        "clothingSize": "M",
-        "clothingBrand": "Essentials",
-        "clothingCondition": "NWT",
-        "clothingBoughtPrice": "150",
-        "clothingModel": "Black Pullover Hoodie",
-        "clothingMarketPrice": "300"
-    }],
+    "clothingCollection": [],
     "shoesCollection": [],
     "name": "User's StreetWear Collection"
 }

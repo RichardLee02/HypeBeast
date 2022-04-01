@@ -155,7 +155,7 @@ public class HypeBeastGUI implements ActionListener {
      */
     private void processComboBox() {
         categoryComboBox = new JComboBox(categoryNames);
-        categoryComboBox.setSelectedIndex(1);
+        categoryComboBox.setSelectedIndex(0);
         categoryComboBox.setBounds(30, 45, 225, 30);
         frame.add(categoryComboBox);
     }

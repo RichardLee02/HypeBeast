@@ -39,7 +39,7 @@ with information including its brand, model, size, and many more.
 A representation sample of the events that occur when HypeBeast GUI runs:
 
 Mon Mar 28 22:29:48 PDT 2022\
-Added Clothing:[Brand = 'Essentials', Model = 'Black Pullover Hoodie', 
+Added Clothing: [Brand = 'Essentials', Model = 'Black Pullover Hoodie', 
 Condition = 'NWT', Size = 'M', Bought Price = '150', Market Price = '300']\
 Mon Mar 28 22:30:28 PDT 2022\
 Added Shoes: [Brand = 'Nike', Model = 'Air Force 1 Low Travis Scott Sail', 
@@ -60,7 +60,9 @@ If I had more time to work on the project, the changes that I would make to impr
 - Reducing moderate and semantic coupling, such that a change in one class will not cause a bug or compile error in the 
   other class 
   - By adhering to the Single Point of Control, it is best to make a change in only one place
-- Having helper methods to reduce code duplication and improve readability   
+- Having helper methods to decrease duplicated code and to improve readability   
+  - HypeBeastApplication and HypeBeastGUI have code that can be refactored into helper methods to shorten and reduce 
+    error in code by having only one placement 
 
 
 

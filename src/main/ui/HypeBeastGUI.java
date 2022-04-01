@@ -103,7 +103,6 @@ public class HypeBeastGUI implements ActionListener {
         jsonReader = new JsonReader(JSON_STORE);
         streetWearCollection = new StreetWearCollection("User's StreetWear Collection");
         runHypeBeastGUI();
-        doViewEvent();
     }
 
     /*
@@ -122,6 +121,7 @@ public class HypeBeastGUI implements ActionListener {
         processActionListener();
         processActionCommand();
         processFrame();
+        processEventLog();
     }
 
     /*
@@ -617,7 +617,7 @@ public class HypeBeastGUI implements ActionListener {
     /*
      * EFFECTS: print to the console all the events that have been logged since the application started
      */
-    private void doViewEvent() {
+    private void processEventLog() {
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {

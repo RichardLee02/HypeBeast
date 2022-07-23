@@ -48,7 +48,7 @@ public class HypeBeastGUI implements ActionListener {
 
     private Object[] columnNames = {"Category", "Brand", "Model",
             "Condition", "Size", "Bought Price ($)", "Market Price ($)"};
-    private Object[] categoryNames = {"Clothing", "Shoes"};
+    private Object[] categoryNames = {"...", "Clothing", "Shoes"};
 
     private DefaultTableModel clothingTableModel;
     private DefaultTableModel shoesTableModel;
@@ -62,11 +62,8 @@ public class HypeBeastGUI implements ActionListener {
 
     private JFrame frame;
 
-    private JPanel informationPanel;
-    private JPanel buttonPanel;
     private JPanel clothingPanel;
     private JPanel shoesPanel;
-    private JPanel collectionPanel;
 
     private JLabel categoryLabel;
     private JLabel brandLabel;
@@ -403,7 +400,7 @@ public class HypeBeastGUI implements ActionListener {
                             boughtPriceTextField.getText(), marketPriceTextField.getText());
                     streetWearCollection.addClothing(clothing);
                 } catch (InvalidConditionException ex) {
-                    // pass
+                    System.out.println("Invalid Condition! Please Try Again!");
                 }
             }
         }
@@ -435,7 +432,7 @@ public class HypeBeastGUI implements ActionListener {
                             boughtPriceTextField.getText(), marketPriceTextField.getText());
                     streetWearCollection.addShoes(shoes);
                 } catch (InvalidConditionException ex) {
-                    // pass
+                    System.out.println("Invalid Condition! Please Try Again!");
                 }
             }
         }
@@ -579,10 +576,11 @@ public class HypeBeastGUI implements ActionListener {
 
     /*
      * MODIFIES: this
-     * EFFECTS: sets brandTextField, modelTextField, conditionTextField, sizeTextField, boughtPriceTextField, and
-     *          marketPriceTextField as empty string ("")
+     * EFFECTS: sets categoryComboBox as default (...), and brandTextField, modelTextField, conditionTextField,
+     *          sizeTextField, boughtPriceTextField, and marketPriceTextField as empty string ("")
      */
     private void doEmptyTextField() {
+        categoryComboBox.setSelectedIndex(0);
         brandTextField.setText("");
         modelTextField.setText("");
         conditionTextField.setText("");

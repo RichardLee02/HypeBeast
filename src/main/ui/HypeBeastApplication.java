@@ -117,17 +117,17 @@ public class HypeBeastApplication {
      * EFFECTS: adds the clothing to the clothing collection
      */
     public void doAddClothing() {
-        System.out.print("Enter Clothing Brand: ");
+        System.out.print("Enter Clothing Brand: " + "\n");
         String brand = input.next();
-        System.out.print("Enter Clothing Model: ");
+        System.out.print("Enter Clothing Model: " + "\n");
         String model = input.next();
-        System.out.print("Enter Clothing Condition: ");
+        System.out.print("Enter Clothing Condition: " + "\n");
         String condition = input.next();
-        System.out.print("Enter Clothing Size: ");
+        System.out.print("Enter Clothing Size: " + "\n");
         String size = input.next();
-        System.out.print("Enter Clothing Bought Price: ");
+        System.out.print("Enter Clothing Bought Price: " + "\n");
         String boughtPrice = input.next();
-        System.out.print("Enter Clothing Market Price: ");
+        System.out.print("Enter Clothing Market Price: " + "\n");
         String marketPrice = input.next();
         Clothing clothing = null;
         try {
@@ -144,17 +144,17 @@ public class HypeBeastApplication {
      * EFFECTS: adds the pair of shoes to the shoes collection
      */
     public void doAddShoes() {
-        System.out.print("Enter Shoe Brand: ");
+        System.out.print("Enter Shoe Brand: " + "\n");
         String brand = input.next();
-        System.out.print("Enter Shoe Model: ");
+        System.out.print("Enter Shoe Model: " + "\n");
         String model = input.next();
-        System.out.print("Enter Shoe Condition: ");
+        System.out.print("Enter Shoe Condition: " + "\n");
         String condition = input.next();
-        System.out.print("Enter Shoe Size: ");
+        System.out.print("Enter Shoe Size: " + "\n");
         String size = input.next();
-        System.out.print("Enter Shoe Bought Price: ");
+        System.out.print("Enter Shoe Bought Price: " + "\n");
         String boughtPrice = input.next();
-        System.out.print("Enter Shoe Market Price: ");
+        System.out.print("Enter Shoe Market Price: " + "\n");
         String marketPrice = input.next();
         Shoes shoes = null;
         try {
@@ -173,17 +173,17 @@ public class HypeBeastApplication {
      */
     public void doRemoveClothing() {
         List<Clothing> removeClothing = new ArrayList<>();
-        System.out.print("Enter Clothing Brand: ");
+        System.out.print("Enter Clothing Brand: " + "\n");
         String brand = input.next();
-        System.out.print("Enter Clothing Model: ");
+        System.out.print("Enter Clothing Model: " + "\n");
         String model = input.next();
-        System.out.print("Enter Clothing Condition: ");
+        System.out.print("Enter Clothing Condition: " + "\n");
         String condition = input.next();
         System.out.print("Enter Clothing Size: ");
         String size = input.next();
-        System.out.print("Enter Clothing Bought Price: ");
+        System.out.print("Enter Clothing Bought Price: " + "\n");
         String boughtPrice = input.next();
-        System.out.print("Enter Clothing Market Price: ");
+        System.out.print("Enter Clothing Market Price: " + "\n");
         String marketPrice = input.next();
         for (Clothing clothing : streetWearCollection.getClothingCollection()) {
             if (clothing.getBrand().equals(brand) && clothing.getModel().equals(model)
@@ -204,17 +204,17 @@ public class HypeBeastApplication {
      */
     public void doRemoveShoes() {
         List<Shoes> removeShoes = new ArrayList<>();
-        System.out.print("Enter Shoe Brand: ");
+        System.out.print("Enter Shoe Brand: " + "\n");
         String brand = input.next();
-        System.out.print("Enter Shoe Model: ");
+        System.out.print("Enter Shoe Model: " + "\n");
         String model = input.next();
-        System.out.print("Enter Shoe Condition: ");
+        System.out.print("Enter Shoe Condition: " + "\n");
         String condition = input.next();
         System.out.print("Enter Shoe Size: ");
         String size = input.next();
-        System.out.print("Enter Shoe Bought Price: ");
+        System.out.print("Enter Shoe Bought Price: " + "\n");
         String boughtPrice = input.next();
-        System.out.print("Enter Shoe Market Price: ");
+        System.out.print("Enter Shoe Market Price: " + "\n");
         String marketPrice = input.next();
         for (Shoes shoes : streetWearCollection.getShoesCollection()) {
             if (shoes.getBrand().equals(brand) && shoes.getModel().equals(model)

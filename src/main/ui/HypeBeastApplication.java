@@ -29,11 +29,9 @@ public class HypeBeastApplication {
      * EFFECTS: runs the HypeBeast Application
      */
     public HypeBeastApplication() throws FileNotFoundException {
-
         streetWearCollection = new StreetWearCollection("User's StreetWear Collection");
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
-
         runHypeBeast();
     }
 
@@ -47,7 +45,9 @@ public class HypeBeastApplication {
 
         init();
 
-        System.out.println("\nWelcome To HypeBeast!" + "\n");
+        System.out.println("\n" + "=======================================================");
+        System.out.println("|                Welcome To HypeBeast!                |");
+        System.out.println("=======================================================" + "\n");
 
         while (keepGoing) {
             displayMenu();
@@ -61,7 +61,9 @@ public class HypeBeastApplication {
             }
         }
 
-        System.out.println("\nThank You For Using HypeBeast!");
+        System.out.println("\n" + "=======================================================");
+        System.out.println("|            Thank You For Using HypeBeast!           |");
+        System.out.println("=======================================================" + "\n");
     }
 
     // MODIFIES: this

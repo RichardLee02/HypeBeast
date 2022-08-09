@@ -1,6 +1,6 @@
-# My Personal Project
+# HypeBeast 
 
-## HypeBeast 
+## About 
 
 **What Will The Application Do?**
 
